@@ -1,16 +1,9 @@
+import { userCheck, showUserView, adminCheck} from "./user_login_checker.js";
 document.addEventListener('DOMContentLoaded', function () {
-    const currentUser = JSON.parse(sessionStorage.getItem('currentUser'));
+    userCheck();
+    adminCheck();
+    showUserView();  
 
-    if (!currentUser) {
-        window.location.href = 'login.html';  // Перенаправление на главную страницу
-        return;
-    }
-
-    if (!currentUser.IsAdmin)
-    {
-        window.location.href = 'user-profile-view.html';  // Перенаправление на главную страницу
-        return;
-    }
     const ratingsList = document.getElementById('ratingsList');
     const users = JSON.parse(localStorage.getItem('users')) || [];
 

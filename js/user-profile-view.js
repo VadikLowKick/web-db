@@ -1,36 +1,14 @@
+import { userCheck, showUserView, adminCheck} from "./user_login_checker.js";
 document.addEventListener('DOMContentLoaded', function () {
+    userCheck();
+    showUserView(); 
+
+
+
+
     const currentUser = JSON.parse(sessionStorage.getItem('currentUser')); //Email пользователя, который вошел в аккаунт
     const userEmail = sessionStorage.getItem('viewUserEmail');  // Email пользователя, которого мы смотрим
     const users = JSON.parse(localStorage.getItem('users')) || [];
-
-
-        // Если ни обычного пользователя, ни администратора нет в сессии
-    if (!currentUser) {
-        window.location.href = 'login.html';  // Перенаправление на главную страницу
-        return;
-    }
-
-    if (!currentUser.IsAdmin) {
-        const userInfoDiv = document.getElementById('user-info');
-        userInfoDiv.innerHTML = `
-            <img src="${currentUser.profileImage || 'default-profile.png'}" alt="${currentUser.name}" style="width: 40px; height: 40px; border-radius: 50%;">
-            <span>${currentUser.name}</span>
-            <button id="logoutButton" style="margin-left: 10px;">Logout</button>
-        `;
-    } else {
-        const userInfoDiv = document.getElementById('user-info');
-        userInfoDiv.innerHTML = `
-            <span>${currentUser.email}</span>
-            <button id="logoutButton" style="margin-left: 10px;">Logout</button>
-        `;
-    }
-
-    // Добавляем обработчик события для кнопки "Logout"
-    document.getElementById('logoutButton').addEventListener('click', function() {
-        sessionStorage.removeItem('currentUser');
-        window.location.href = 'registration.html'; // Страница регистрации
-    });
-
 
      // Проверяем, есть ли данные о пользователях
      if (users.length === 0) {
@@ -64,10 +42,6 @@ document.addEventListener('DOMContentLoaded', function () {
     document.getElementById('weight').textContent = user.weight;
     document.getElementById('zodiac').textContent = user.zodiac;
     document.getElementById('description').textContent = user.description;
-
-
-
-    // Отображаем фото профиля, если есть
     document.getElementById('profileImage').src = user.profileImage || 'default-profile.png';
 
 
@@ -99,8 +73,7 @@ document.addEventListener('DOMContentLoaded', function () {
         localStorage.setItem('users', JSON.stringify(users));
         alert('Thank you for rating!');
     });
-
-    console.log(user.email, currentUser.email)
+                                    
      // Проверка, если это профиль текущего пользователя, показываем кнопку для редактирования
      if (user.email === currentUser.email) {
         // Создаем кнопку для редактирования профиля

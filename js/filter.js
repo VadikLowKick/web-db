@@ -1,35 +1,11 @@
-document.addEventListener('DOMContentLoaded', function() {
-    console.log('DOMContentLoaded fired');
+import { userCheck, showUserView, adminCheck} from "./user_login_checker.js";
 
-    const currentUser = JSON.parse(sessionStorage.getItem('currentUser'));
-    console.log('Current User:', currentUser);
-
-    // Если ни обычного пользователя, ни администратора нет в сессии
-    if (!currentUser) {
-        window.location.href = 'login.html';  // Перенаправление на главную страницу
-        return;
-    }
-
-    if (!currentUser.IsAdmin) {
-        const userInfoDiv = document.getElementById('user-info');
-        userInfoDiv.innerHTML = `
-            <img src="${currentUser.profileImage || 'default-profile.png'}" alt="${currentUser.name}" style="width: 40px; height: 40px; border-radius: 50%;">
-            <span>${currentUser.name}</span>
-            <button id="logoutButton" style="margin-left: 10px;">Logout</button>
-        `;
-    } else {
-        const userInfoDiv = document.getElementById('user-info');
-        userInfoDiv.innerHTML = `
-            <span>${currentUser.email}</span>
-            <button id="logoutButton" style="margin-left: 10px;">Logout</button>
-        `;
-    }
-    // Добавляем обработчик события для кнопки "Logout"
-    document.getElementById('logoutButton').addEventListener('click', function() {
-        sessionStorage.removeItem('currentUser');
-        window.location.href = 'registration.html'; // Страница регистрации
-    });
+document.addEventListener('DOMContentLoaded', function () {
+    userCheck();
+    showUserView(); 
 });
+
+
 document.getElementById('filterForm').addEventListener('submit', function (e) {
     e.preventDefault()
 
