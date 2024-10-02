@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>View User Profile</title>
+    <link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+    <div id="user-info"></div>
+    <h1>User Profile</h1>
+    <img id="profileImage" src="" alt="User Image" style="width: 200px; height: 200px;"/><br>
+    <p><strong>Name:</strong> <span id="name"></span></p>
+    <p><strong>Age:</strong> <span id="age"></span></p>
+    <p><strong>Gender:</strong> <span id="gender"></span></p>
+    <p><strong>Height:</strong> <span id="height"></span></p>
+    <p><strong>Weight:</strong> <span id="weight"></span></p>
+    <p><strong>Zodiac Sign:</strong> <span id="zodiac"></span></p>
+    <p><strong>Description:</strong> <span id="description"></span></p>
+    <p><strong>Rating:</strong> <span id="rating"></span>/5.0</p>
+
+    <h3>Rate this user:</h3>
+    <select id="userRating">
+        <option value="1">1</option>
+        <option value="2">2</option>
+        <option value="3">3</option>
+        <option value="4">4</option>
+        <option value="5">5</option>
+    </select>
+    <button id="submitRating">Submit Rating</button>
+
+    <button id="back">Back to Users</button>
+
+    <div id="profileActions"></div>
+
+    <script src="js/user-profile-view.js"></script>
+</body>
+</html>

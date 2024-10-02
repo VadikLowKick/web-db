@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Complete Your Profile</title>
+    <link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+    <div id="user-info"></div>
+    <h1>Complete Your Profile</h1>
+    <form id="profileForm">
+        <label for="name">Name:</label>
+        <input type="text" id="name" required><br>
+
+        <label for="age">Age:</label>
+        <input type="number" id="age" required><br>
+
+        <label for="gender">Gender:</label><br>
+        <label>
+            <input type="radio" name="gender" value="Male"> Мale
+        </label><br>
+        <label>
+            <input type="radio" name="gender" value="Female"> Female
+        </label><br>
+
+        <label for="height">Height (cm):</label>
+        <input type="number" id="height" required><br>
+
+        <label for="weight">Weight (kg):</label>
+        <input type="number" id="weight" required><br>
+
+        <label for="zodiac">Zodiac:</label>
+        <select id="zodiac" required>
+            <option value="Aries">Aries</option>
+            <option value="Taurus">Taurus</option>
+            <option value="Gemini">Gemini</option>
+            <option value="Cancer">Cancer</option>
+            <option value="Leo">Leo</option>
+            <option value="Virgo">Virgo</option>
+            <option value="Libra">Libra</option>
+            <option value="Scorpio">Scorpio</option>
+            <option value="Sagittarius">Sagittarius</option>
+            <option value="Capricorn">Capricorn</option>
+            <option value="Aquarius">Aquarius</option>
+            <option value="Pisces">Pisces</option>
+        </select><br>
+
+        <!-- Поле для загрузки фото профиля -->
+        <label for="profileImage">Profile Image:</label>
+        <input type="file" id="profileImage" accept="image/*"><br>
+        <!-- Превью изображения -->
+        <img id="imagePreview" src="" alt="Profile Image Preview" style="display: none; width: 100px; height: 100px;"/><br>
+
+        <label for="description">Description:</label>
+        <textarea id="description" required></textarea><br>
+
+        <button type="submit">Save Profile</button>
+    </form>
+
+    <button id="viewUsers">View Other Users</button>
+
+    <script src="js/user-profile.js"></script>
+</body>
+</html>
