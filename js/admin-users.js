@@ -1,23 +1,34 @@
 import { userCheck, showUserView, adminCheck} from "./user_login_checker.js";
+import {filterWithPreset} from "./filter.js";
 document.addEventListener('DOMContentLoaded', function () {
     userCheck();
     adminCheck();
     showUserView();  
-    
+
+    const adminPresets = JSON.parse(localStorage.getItem('adminPresets'));
     const usersList = document.getElementById('usersList');
     const users = JSON.parse(localStorage.getItem('users')) || [];
+
+    const presetName = sessionStorage.getItem('viewPresetName');
+
+    const preset = adminPresets.find(u => u.name === presetName);
+
+    const filteredUsers = filterWithPreset(users, preset.preset)
 
     if (users.length === 0) {
         usersList.innerHTML = '<p>No users found.</p>';
         return;
     }
 
-    users.forEach(user => {
+
+
+
+    filteredUsers.forEach(user => {
         const userCard = document.createElement('div');
         userCard.classList.add('user-card');
 
         userCard.innerHTML = `
-            <img src="${user.photo}" alt="${user.name}'s photo" width="100">
+            <img src="${user.profileImage}" alt="${user.name}'s photo" width="100">
             <h2>${user.name}</h2>
             <p>Age: ${user.age}</p>
             <p>Height: ${user.height} cm</p>
@@ -28,4 +39,7 @@ document.addEventListener('DOMContentLoaded', function () {
 
         usersList.appendChild(userCard);
     });
+
+    var header = document.getElementById('header');
+    header.innerText = preset.name;
 });

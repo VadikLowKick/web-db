@@ -88,3 +88,11 @@ h1 {
 #user-info span {
     font-weight: bold;
 }
+
+#result {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    padding: 20px;
+}
+

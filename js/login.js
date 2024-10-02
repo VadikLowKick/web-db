@@ -33,7 +33,7 @@ document.getElementById('loginForm').addEventListener('submit', function(event) 
             
             // Проверяем, заполнены ли данные профиля
             if (!user.name || !user.age || !user.height || !user.weight) {
-                window.location.href = 'profile.html';  // Переход на страницу заполнения профиля
+                window.location.href = 'user-profile.html';  // Переход на страницу заполнения профиля
             } else {
                 window.location.href = 'user-profile-view.html';  // Переход на страницу просмотра пользователей
             }

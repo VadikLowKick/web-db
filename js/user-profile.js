@@ -2,6 +2,7 @@ import { userCheck, showUserView, adminCheck} from "./user_login_checker.js";
 document.addEventListener('DOMContentLoaded', function () {
     userCheck();
     showUserView();
+    const currentUser = JSON.parse(sessionStorage.getItem('currentUser'));
    
     // Заполнение формы текущими данными пользователя
     document.getElementById('name').value = currentUser.name || '';

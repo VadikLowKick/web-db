@@ -3,9 +3,6 @@ document.addEventListener('DOMContentLoaded', function () {
     userCheck();
     showUserView(); 
 
-
-
-
     const currentUser = JSON.parse(sessionStorage.getItem('currentUser')); //Email пользователя, который вошел в аккаунт
     const userEmail = sessionStorage.getItem('viewUserEmail');  // Email пользователя, которого мы смотрим
     const users = JSON.parse(localStorage.getItem('users')) || [];
