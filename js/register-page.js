@@ -18,10 +18,19 @@ document.getElementById('registrationForm').addEventListener('submit', function(
     }
 
     const newUser = {
+        IsAdmin: false,
         email: email,
         password: password,
-        profile: {}
+        name: '',
+        age: '',
+        height: '',
+        weight: '',
+        zodiac: '',
+        description: '',
+        rating: 0
     };
+    
+    sessionStorage.setItem('currentUser', JSON.stringify(newUser));  // Сохраняем текущего пользователя в sessionStorage
 
     users.push(newUser);
     localStorage.setItem('users', JSON.stringify(users));

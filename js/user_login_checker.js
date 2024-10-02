@@ -2,7 +2,7 @@
 export function userCheck(){ 
     const currentUser = JSON.parse(sessionStorage.getItem('currentUser'));
     if (!currentUser) {
-        window.location.href = 'login-page.html';  // Перенаправление на главную страницу
+        window.location.href = 'login.html';  // Перенаправление на главную страницу
         return;
         }
 }
@@ -13,11 +13,11 @@ export function adminCheck(relocate = false){
         return true;
     }
     if (!currentUser.IsAdmin && relocate){
-            window.location.href = 'user-profile-view.html';  // Перенаправление на главную страницу
+            window.location.href = 'users.html';  // Перенаправление на главную страницу
             return;
         }
     if (!currentUser.IsAdmin && !relocate){
-        return true;
+        return false;
     }
 
 }
