@@ -32,25 +32,6 @@ document.addEventListener('DOMContentLoaded', function() {
 });
 document.getElementById('filterForm').addEventListener('submit', function (e) {
     e.preventDefault()
-    const currentUser = JSON.parse(sessionStorage.getItem('currentUser'));
-    const currentAdmin = JSON.parse(sessionStorage.getItem('currentAdmin'));
-
-    // Если ни обычного пользователя, ни администратора нет в сессии
-    if (!currentUser && !currentAdmin) {
-        window.location.href = 'index.html';  // Перенаправление на главную страницу
-        return;
-    }
-
-    if (currentUser) {
-        // Находим элемент для вставки информации о пользователе
-        const userInfoDiv = document.getElementById('user-info');
-        // Заполняем элемент данными пользователя
-        userInfoDiv.innerHTML = `
-            <img src="${currentUser.profileImage || 'default-profile.png'}" alt="${currentUser.name}" style="width: 40px; height: 40px; border-radius: 50%;">
-            <span>${currentUser.name}</span>
-        `;
-    }
-
 
     const minAge = parseInt(document.getElementById('minAge').value, 10);
     const maxAge = parseInt(document.getElementById('maxAge').value, 10);
