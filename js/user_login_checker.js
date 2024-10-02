@@ -2,7 +2,7 @@
 export function userCheck(){ 
     const currentUser = JSON.parse(sessionStorage.getItem('currentUser'));
     if (!currentUser) {
-        window.location.href = 'login.html';  // Перенаправление на главную страницу
+        window.location.href = 'login-page.html';  // Перенаправление на главную страницу
         return;
         }
 }
