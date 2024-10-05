@@ -1,5 +1,5 @@
-import {filterWithPreset} from "./filter.js";
-import { userCheck, showUserView, adminCheck} from "./user_login_checker.js";
+import {filterWithPreset} from "./func_scripts/filter.js";
+import { userCheck, showUserView, adminCheck} from "./func_scripts/user_login_checker.js";
 
 document.addEventListener('DOMContentLoaded', function () {
     userCheck();
@@ -24,6 +24,14 @@ document.addEventListener('DOMContentLoaded', function () {
         usersList.appendChild(userItem);
      });
 
+        const userItem = document.createElement('div');
+        userItem.classList.add('user-card')
+        userItem.innerHTML = `
+         <button id="AddCatalog">Add new catalog</button>
+        
+    `;
+        usersList.appendChild(userItem);
+
      // Переход на страницу просмотра профиля
     document.querySelectorAll('.viewCatalog').forEach(button => {
         button.addEventListener('click', function () {
@@ -31,5 +39,10 @@ document.addEventListener('DOMContentLoaded', function () {
             window.location.href = 'admin-users.html';
         });
     });
+
+    const addCatalogButton = document.getElementById('AddCatalog');
+    addCatalogButton.addEventListener('click', function () {
+        window.location.href = 'admin-filter-page.html';
+    })
 
 });

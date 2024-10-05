@@ -41,7 +41,7 @@ export function showUserView(){
     
     // Добавляем обработчик события для кнопки "Logout"
     document.getElementById('logoutButton').addEventListener('click', function() {
-        sessionStorage.removeItem('currentUser');
+        sessionStorage.clear();
         window.location.href = 'registration.html'; // Страница регистрации
     });
     

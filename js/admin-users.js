@@ -1,11 +1,11 @@
-import { userCheck, showUserView, adminCheck} from "./user_login_checker.js";
-import {filterWithPreset} from "./filter.js";
+import { userCheck, showUserView, adminCheck} from "./func_scripts/user_login_checker.js";
+import {filterWithPreset} from "./func_scripts/filter.js";
 document.addEventListener('DOMContentLoaded', function () {
     userCheck();
     adminCheck(true)
     showUserView();  
 
-    const adminPresets = JSON.parse(localStorage.getItem('adminPresets'));
+    let adminPresets = JSON.parse(localStorage.getItem('adminPresets'));
     const usersList = document.getElementById('usersList');
     const users = JSON.parse(localStorage.getItem('users')) || [];
 
@@ -35,10 +35,29 @@ document.addEventListener('DOMContentLoaded', function () {
             <p>Weight: ${user.weight} kg</p>
             <p>Zodiac: ${user.zodiac}</p>
             <p>Description: ${user.description}</p>
+            <button class="viewProfile" data-email="${user.email}">View Profile</button>
         `;
 
         usersList.appendChild(userCard);
     });
+
+    // Переход на страницу просмотра профиля
+    document.querySelectorAll('.viewProfile').forEach(button => {
+        button.addEventListener('click', function () {
+            sessionStorage.setItem('viewUserEmail', this.getAttribute('data-email'));
+            window.location.href = 'admin-user-profile-view.html';
+        });
+    });
+
+    const deleteCatalogButton = document.getElementById('deleteCatalog');
+
+    deleteCatalogButton.addEventListener('click', function () {
+        adminPresets = adminPresets.filter(preset => preset.name !== presetName);
+        // Обновляем данные в LocalStorage
+        localStorage.setItem('adminPresets', JSON.stringify(adminPresets));
+        window.location.href='admin-catalogs.html'
+        
+    })
 
     var header = document.getElementById('header');
     header.innerText = preset.name;

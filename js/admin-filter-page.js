@@ -5,7 +5,9 @@ import {filterWithPreset} from "./func_scripts/filter.js";
 
 document.addEventListener('DOMContentLoaded', function () {
     userCheck();
-    showUserView(); 
+    showUserView();
+    adminCheck(true);
+
 });
 
 
@@ -39,7 +41,6 @@ const preset = {
     maxRating:  maxRating
 };
     
-
     // Получаем всех пользователей из LocalStorage
     const users = JSON.parse(localStorage.getItem('users')) || [];
 
@@ -69,10 +70,49 @@ const preset = {
         document.querySelectorAll('.viewProfile').forEach(button => {
             button.addEventListener('click', function () {
                 sessionStorage.setItem('viewUserEmail', this.getAttribute('data-email'));
-                window.location.href = 'user-profile-view.html';
+                window.location.href = 'admin-user-profile-view.html';
             });
         });
     } else {
         resultsDiv.innerHTML = '<p>No users found with the selected filters.</p>';
     }
+
+    const savePresetButton = document.getElementById('savePreset');
+
+    const modal = document.getElementById("myModal");
+    const closeModal = document.querySelector(".close");
+    const submitBtn = document.getElementById("submitBtn");
+    const textInput = document.getElementById("textInput");
+    
+    savePresetButton.addEventListener('click', function () {
+        modal.style.display = "block";
+    })
+
+    // Закрытие модального окна при нажатии на крестик
+    closeModal.addEventListener('click', function() {
+        modal.style.display = "none";
+    });
+
+    // Закрытие модального окна при клике вне его
+    window.addEventListener('click', function(event) {
+            if (event.target == modal) {
+                modal.style.display = "none";
+            }
+    });
+
+    // Обработчик кнопки Submit
+    submitBtn.addEventListener('click', function() {
+        
+        let adminPresets = JSON.parse(localStorage.getItem('adminPresets'));
+        console.log(adminPresets)
+        const inputText = textInput.value; // Получаем введенное значение
+        const newPreset = {
+            name: inputText,
+            preset: preset
+        };
+
+        adminPresets.push(newPreset);
+        localStorage.setItem('adminPresets', JSON.stringify(adminPresets));
+    });
+
 });

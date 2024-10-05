@@ -18,6 +18,7 @@ document.getElementById('registrationForm').addEventListener('submit', function(
     }
 
     const newUser = {
+        IsHidden: false,
         IsAdmin: false,
         email: email,
         password: password,
