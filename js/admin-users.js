@@ -55,9 +55,17 @@ document.addEventListener('DOMContentLoaded', function () {
         adminPresets = adminPresets.filter(preset => preset.name !== presetName);
         // Обновляем данные в LocalStorage
         localStorage.setItem('adminPresets', JSON.stringify(adminPresets));
+        sessionStorage.removeItem('viewPresetName');
         window.location.href='admin-catalogs.html'
         
     })
+
+    const editCatalogButton = document.getElementById('editCatalog');
+
+    editCatalogButton.addEventListener('click', function () {
+        window.location.href='admin-filter-page.html'
+    })
+
 
     var header = document.getElementById('header');
     header.innerText = preset.name;

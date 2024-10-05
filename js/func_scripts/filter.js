@@ -18,7 +18,10 @@ export function filterWithPreset(users, preset) {
         const genderMatch = preset.gender === null || user.gender === preset.gender;
         const zodiacMatch = preset.zodiac === null || user.zodiac === preset.zodiac;
 
+        // Новая проверка по параметру isPremium (если есть)
+        const hiddenMatch = preset.IsHidden === null || user.IsHidden === preset.IsHidden;
+
         // Возвращаем true, если все условия выполнены
-        return ageInRange && heightInRange && weightInRange && ratingInRange && genderMatch && zodiacMatch;
+        return ageInRange && heightInRange && weightInRange && ratingInRange && genderMatch && zodiacMatch && hiddenMatch;
     });
 }

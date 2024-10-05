@@ -36,7 +36,8 @@ const preset = {
     minWeight:  minWeight,
     maxWeight:  maxWeight,
     minRating:  minRating,
-    maxRating:  maxRating
+    maxRating:  maxRating,
+    IsHidden : null
 };
     
 
