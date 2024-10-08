@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>User Activity Logs</title>
+    <link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+    <h1>User Activity Logs</h1>
+    <div id="logsContainer"></div>
+    <button id="clearLogs">Clear Logs</button>
+
+    <script>
+        // Отображение логов
+        function displayLogs() {
+            const logsContainer = document.getElementById('logsContainer');
+            const logs = JSON.parse(localStorage.getItem('userLogs')) || [];
+            logsContainer.innerHTML = '';
+
+            if (logs.length === 0) {
+                logsContainer.innerHTML = '<p>No logs available.</p>';
+                return;
+            }
+
+            const logsList = document.createElement('ul');
+            logs.forEach(log => {
+                const logItem = document.createElement('li');
+                logItem.textContent = `${log.timestamp}: ${log.action}`;
+                logsList.appendChild(logItem);
+            });
+
+            logsContainer.appendChild(logsList);
+        }
+
+        // Очистка логов
+        document.getElementById('clearLogs').addEventListener('click', function () {
+            localStorage.removeItem('userLogs');
+            displayLogs();
+        });
+
+        // Загружаем логи при загрузке страницы
+        document.addEventListener('DOMContentLoaded', displayLogs);
+    </script>
+</body>
+</html>
