@@ -7,40 +7,28 @@
     <link rel="stylesheet" href="css/styles.css">
 </head>
 <body>
+    <div id="user-info"></div>
     <h1>User Activity Logs</h1>
-    <div id="logsContainer"></div>
-    <button id="clearLogs">Clear Logs</button>
-
-    <script>
-        // Отображение логов
-        function displayLogs() {
-            const logsContainer = document.getElementById('logsContainer');
-            const logs = JSON.parse(localStorage.getItem('userLogs')) || [];
-            logsContainer.innerHTML = '';
-
-            if (logs.length === 0) {
-                logsContainer.innerHTML = '<p>No logs available.</p>';
-                return;
-            }
-
-            const logsList = document.createElement('ul');
-            logs.forEach(log => {
-                const logItem = document.createElement('li');
-                logItem.textContent = `${log.timestamp}: ${log.action}`;
-                logsList.appendChild(logItem);
-            });
-
-            logsContainer.appendChild(logsList);
-        }
-
-        // Очистка логов
-        document.getElementById('clearLogs').addEventListener('click', function () {
-            localStorage.removeItem('userLogs');
-            displayLogs();
-        });
-
-        // Загружаем логи при загрузке страницы
-        document.addEventListener('DOMContentLoaded', displayLogs);
-    </script>
+    <table id="logsTable">
+        <thead>
+            <tr>
+                <th>User</th>
+                <th>Action</th>
+                <th>Timestamp</th>
+            </tr>
+        </thead>
+        <tbody>
+            <!-- Данные будут добавляться сюда через JavaScript -->
+        </tbody>
+    </table>
+    
+    <div id="pagination">
+        <!-- Кнопки пагинации будут добавляться здесь -->
+    </div>
+    
+    <div id ='buttons'>
+        <a href="admin-dashboard.html"><button>Back to Dashboard</button></a>
+    </div>
+    <script type="module" src="js/admin-logs.js"></script>
 </body>
 </html>

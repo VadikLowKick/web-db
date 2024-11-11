@@ -128,4 +128,33 @@ h1 {
             color: #000;
             cursor: pointer;
         }
-
+        table {
+            width: 100%;
+            border-collapse: collapse;
+        }
+        th, td {
+            border: 1px solid #ddd;
+            padding: 8px;
+            text-align: left;
+        }
+        th {
+            background-color: #f2f2f2;
+        }
+        #pagination {
+            margin-top: 15px;
+            text-align: center;
+        }
+        .pagination-button {
+            padding: 5px 10px;
+            margin: 0 2px;
+            cursor: pointer;
+        }
+        .pagination-button.active {
+            font-weight: bold;
+            background-color: #ddd;
+        }
+        #buttons{
+            margin-top: 15px;
+            text-align: center;
+        }
+        
