@@ -17,6 +17,9 @@ document.addEventListener('DOMContentLoaded', function () {
 
     // Отображаем каждого пользователя
     users.forEach(user => {
+        if (user.IsHidden){
+            return;
+        }
         const userItem = document.createElement('div');
         userItem.classList.add('user-card');
         
@@ -25,8 +28,7 @@ document.addEventListener('DOMContentLoaded', function () {
         <p>${user.name}</p>
         <p>${user.gender} ${user.age} y.o.</p>
         <p>Рейтинг : ${user.avg_rating}</p>
-        <button class="viewProfile" data-email="${user.email}">View Profile</button>
-    `;
+        <button id="view__profile_${user.email}" class="viewProfile" data-email="${user.email}">View Profile</button>`;
 
         usersList.appendChild(userItem);
     });

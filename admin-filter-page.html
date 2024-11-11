@@ -18,12 +18,8 @@
         <input type="number" id="maxAge" required><br>
 
         <label for="gender">Gender:</label><br>
-        <label>
-            <input type="radio" name="gender" value="Male"> Мale
-        </label><br>
-        <label>
-            <input type="radio" name="gender" value="Female"> Female
-        </label><br>
+        <input type="checkbox" id="maleCheck" name="maleCheck" value="false"> Male<br>
+        <input type="checkbox" id="femaleCheck" name="femaleCheck" value="false"> Female<br>
 
         <label for="zodiac">Zodiac Sign:</label>
         <select id="zodiac">
@@ -63,8 +59,11 @@
         <label for="maxRating">Max Rating:</label>
         <input type="number" id="maxRating"><br>
 
-        <label for="hiddenCheck">Hidden Profile</label>
+        <label for="hiddenCheck">Only Hidden Profiles</label>
         <input type="checkbox" id="hiddenCheck" name="hiddenCheck" value="false"><br>
+
+        <label for="visibleCheck">Only Visible Profiles</label>
+        <input type="checkbox" id="visibleCheck" name="visibleCheck" value="false"><br>
 
 
         <button type="submit">Filter</button>

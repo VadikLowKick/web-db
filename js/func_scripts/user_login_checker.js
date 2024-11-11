@@ -27,17 +27,26 @@ export function showUserView(){
     if (!currentUser.IsAdmin) {
         const userInfoDiv = document.getElementById('user-info');
         userInfoDiv.innerHTML = `
-            <img src="${currentUser.profileImage || 'default-profile.png'}" alt="${currentUser.name}" style="width: 40px; height: 40px; border-radius: 50%;">
+            <a id='currentUserLink' href="user-profile-view.html" data-email="${currentUser.email}">
+            <img src="${currentUser.profileImage || 'default-profile.png'}" alt="${currentUser.name}"  style="width: 40px; height: 40px; border-radius: 50%;">
+            </a>
             <span>${currentUser.name}</span>
             <button id="logoutButton" style="margin-left: 10px;">Logout</button>
         `;
     } else {
         const userInfoDiv = document.getElementById('user-info');
         userInfoDiv.innerHTML = `
-            <span>${currentUser.email}</span>
+            <span id='currentUserLink'>${currentUser.email}</span>
             <button id="logoutButton" style="margin-left: 10px;">Logout</button>
         `;
     }
+
+    document.getElementById('currentUserLink').addEventListener('click', function() {
+        if (!currentUser.IsAdmin){
+            sessionStorage.setItem('viewUserEmail', this.getAttribute('data-email'));
+        }
+    });
+
     
     // Добавляем обработчик события для кнопки "Logout"
     document.getElementById('logoutButton').addEventListener('click', function() {

@@ -76,6 +76,7 @@ document.addEventListener('DOMContentLoaded', function () {
         // Создаем кнопку для редактирования профиля
         const editButton = document.createElement('button');
         editButton.textContent = 'Edit Profile';
+        editButton.id = 'edit_own_profile';
         editButton.classList.add('user-profile-btn'); // Вы можете добавить классы для стилизации
 
         // Добавляем обработчик клика для перехода на страницу редактирования профиля
@@ -91,7 +92,7 @@ document.addEventListener('DOMContentLoaded', function () {
   
 
     // Кнопка для возврата к списку пользователей
-    document.getElementById('back').addEventListener('click', function () {
+    document.getElementById('back_to_users').addEventListener('click', function () {
         window.location.href = 'users.html';
     });
 });

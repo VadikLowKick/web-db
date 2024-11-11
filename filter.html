@@ -9,7 +9,7 @@
 <body>
     <div id="user-info"></div>
     <h1>Filter Users</h1>
-    <a href="users.html"><button>View All Users</button></a>
+    <a href="users.html"><button id = "view_all_users">View All Users</button></a>
     <form id="filterForm">
         <label for="minAge">Min Age:</label>
         <input type="number" id="minAge" required><br>
@@ -63,10 +63,11 @@
         <label for="maxRating">Max Rating:</label>
         <input type="number" id="maxRating"><br>
 
-        <button type="submit">Filter</button>
+        <button id = "submit_filter" type="submit">Filter</button>
     </form>
 
     <div id="results"></div>
     <script type="module" src="js/filter-page.js"></script>
+    <script src="js/logger.js"></script>
 </body>
 </html>

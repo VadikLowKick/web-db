@@ -8,7 +8,7 @@ document.addEventListener('DOMContentLoaded', function () {
 
     const users = JSON.parse(localStorage.getItem('users')) || [];
     const usersList = document.getElementById('result');
-    const adminPresets = JSON.parse(localStorage.getItem('adminPresets'));
+    const adminPresets = JSON.parse(localStorage.getItem('adminPresets')) || [];;
 
 
     adminPresets.forEach(preset => {

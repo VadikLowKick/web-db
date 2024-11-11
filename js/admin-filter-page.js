@@ -6,7 +6,6 @@ function fill_preset(){
    
     const minAge = parseInt(document.getElementById('minAge').value, 10);
     const maxAge = parseInt(document.getElementById('maxAge').value, 10);
-    const gender = document.querySelector('input[name="gender"]:checked') ? document.querySelector('input[name="gender"]:checked').value : null;
     const zodiac = document.getElementById('zodiac').value;
     const minHeight = parseInt(document.getElementById('minHeight').value, 10);
     const maxHeight = parseInt(document.getElementById('maxHeight').value, 10);
@@ -14,10 +13,32 @@ function fill_preset(){
     const maxWeight = parseInt(document.getElementById('maxWeight').value, 10);
     const minRating = parseFloat(document.getElementById('minRating').value);
     const maxRating = parseFloat(document.getElementById('maxRating').value);
-    const checkbox = document.getElementById('hiddenCheck');
+    const maleCheckbox = document.getElementById('maleCheck');
+    const femaleCheckbox = document.getElementById('femaleCheck');
+    const hiddenCheckbox = document.getElementById('hiddenCheck');
+    const visibleCheckbox = document.getElementById('visibleCheck');
+    var gender = null;
+    if (maleCheckbox.checked){
+        gender = "Male";
+    }
+    if (femaleCheckbox.checked){
+        gender = "Female";
+    }
+    if (maleCheckbox.checked && femaleCheckbox.checked){
+        gender = null;
+    }
 
-    const IsHidden = checkbox.checked;
 
+    var IsHidden = null;
+    if (hiddenCheckbox.checked){
+        IsHidden = true;
+    }
+    if (visibleCheckbox.checked){
+        IsHidden = false;
+    }
+    if (hiddenCheckbox.checked && visibleCheckbox.checked){
+        IsHidden = null;
+    }
     // Создаем preset
     preset = {
     minAge: isNaN(minAge) ? null : minAge,
@@ -62,8 +83,11 @@ document.addEventListener('DOMContentLoaded', function () {
         document.getElementById('minAge').value = true_preset.minAge;
         document.getElementById('maxAge').value = true_preset.maxAge;
 
-        if (true_preset.gender) {
-            document.querySelector(`input[name="gender"][value="${true_preset.gender}"]`).checked = true;
+        if (true_preset.gender == 'Male') {
+            document.getElementById('maleCheck').checked = true;
+        }
+        if (true_preset.gender == 'Female') {
+            document.getElementById('femaleCheck').checked = true;
         }
 
         // Устанавливаем значение для поля "Zodiac Sign"
@@ -80,7 +104,17 @@ document.addEventListener('DOMContentLoaded', function () {
         document.getElementById('maxRating').value = true_preset.maxRating;
 
         // Устанавливаем значение для поля "Hidden Profile"
-        document.getElementById('hiddenCheck').checked = true_preset.IsHidden;
+        if (true_preset.IsHidden){
+            document.getElementById('hiddenCheck').checked = true_preset.IsHidden;
+        }
+        if (!true_preset.IsHidden)
+        {
+            document.getElementById('visibleCheck').checked = true;
+        }
+        if (true_preset.IsHidden == null){
+            document.getElementById('hiddenCheck').checked = false;
+            document.getElementById('visibleCheck').checked = false;
+        }
 
 
     }

@@ -1,7 +1,9 @@
 // Сохранение логов в LocalStorage
+const currentUser = JSON.parse(sessionStorage.getItem('currentUser')); //Email пользователя, который вошел в аккаунт
 function logAction(action) {
     const logs = JSON.parse(localStorage.getItem('userLogs')) || [];
     logs.push({
+        user : currentUser.email,
         action: action,
         timestamp: new Date().toLocaleString()
     });
@@ -14,7 +16,7 @@ function trackUserActions() {
     document.addEventListener('click', function (event) {
         const element = event.target;
         if (element.tagName === 'BUTTON' || element.tagName === 'INPUT' || element.tagName === 'SELECT') {
-            logAction(`Clicked on ${element.tagName} with id="${element.id}"`);
+            logAction(` clicked on ${element.tagName} with id="${element.id}"`);
         }
     });
 
@@ -22,7 +24,7 @@ function trackUserActions() {
     document.addEventListener('input', function (event) {
         const element = event.target;
         if (element.tagName === 'INPUT' || element.tagName === 'TEXTAREA' || element.tagName === 'SELECT') {
-            logAction(`Input in ${element.tagName} with id="${element.id}" changed to "${element.value}"`);
+            logAction(` input in ${element.tagName} with id="${element.id}" changed to "${element.value}"`);
         }
     });
 }
