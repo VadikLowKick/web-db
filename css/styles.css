@@ -66,6 +66,15 @@ h1 {
     margin-top: 10px;
     padding: 5px 10px;
     cursor: pointer;
+    background: linear-gradient(to right, #00c6ff, #0072ff); /* Градиент голубого */
+    color: white;
+    border: none;
+    border-radius: 5px;
+    font-weight: bold;
+}
+
+.user-item button:hover {
+    background: linear-gradient(to right, #0072ff, #00c6ff);
 }
 
 #user-info {
@@ -95,66 +104,97 @@ h1 {
     justify-content: center;
     padding: 20px;
 }
-        /* Стили для модального окна */
-        .modal {
-            display: none; /* Скрываем модальное окно по умолчанию */
-            position: fixed;
-            z-index: 1;
-            left: 0;
-            top: 0;
-            width: 100%;
-            height: 100%;
-            background-color: rgba(0, 0, 0, 0.5); /* Темный фон */
-        }
 
-        .modal-content {
-            background-color: #fff;
-            margin: 15% auto;
-            padding: 20px;
-            border: 1px solid #888;
-            width: 300px;
-            text-align: center;
-        }
+/* Стили для модального окна */
+.modal {
+    display: none; /* Скрываем модальное окно по умолчанию */
+    position: fixed;
+    z-index: 1;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5); /* Темный фон */
+}
 
-        .close {
-            color: #aaa;
-            float: right;
-            font-size: 24px;
-            font-weight: bold;
-        }
+.modal-content {
+    background-color: #fff;
+    margin: 15% auto;
+    padding: 20px;
+    border: 1px solid #888;
+    width: 300px;
+    text-align: center;
+}
 
-        .close:hover,
-        .close:focus {
-            color: #000;
-            cursor: pointer;
-        }
-        table {
-            width: 100%;
-            border-collapse: collapse;
-        }
-        th, td {
-            border: 1px solid #ddd;
-            padding: 8px;
-            text-align: left;
-        }
-        th {
-            background-color: #f2f2f2;
-        }
-        #pagination {
-            margin-top: 15px;
-            text-align: center;
-        }
-        .pagination-button {
-            padding: 5px 10px;
-            margin: 0 2px;
-            cursor: pointer;
-        }
-        .pagination-button.active {
-            font-weight: bold;
-            background-color: #ddd;
-        }
-        #buttons{
-            margin-top: 15px;
-            text-align: center;
-        }
-        
+.close {
+    color: #aaa;
+    float: right;
+    font-size: 24px;
+    font-weight: bold;
+}
+
+.close:hover,
+.close:focus {
+    color: #000;
+    cursor: pointer;
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+th, td {
+    border: 1px solid #ddd;
+    padding: 8px;
+    text-align: left;
+}
+
+th {
+    background-color: #f2f2f2;
+}
+
+#pagination {
+    margin-top: 15px;
+    text-align: center;
+}
+
+.pagination-button {
+    padding: 5px 10px;
+    margin: 0 2px;
+    cursor: pointer;
+}
+
+.pagination-button.active {
+    font-weight: bold;
+    background-color: #ddd;
+}
+
+#buttons {
+    margin-top: 15px;
+    text-align: center;
+}
+
+/* Выравнивание всех элементов на странице пользователя */
+.user-page {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 20px;
+}
+
+/* Изменение размера всех элементов ввода */
+input, select, textarea, button {
+    font-size: 16px; /* Увеличиваем размер шрифта */
+    padding: 10px;
+    margin: 10px;
+    border-radius: 5px;
+    border: 1px solid #ccc;
+}
+
+input[type="text"], input[type="email"], input[type="password"], select, textarea {
+    width: 300px;
+}
+
+

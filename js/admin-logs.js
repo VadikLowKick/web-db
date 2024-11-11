@@ -1,11 +1,6 @@
 import { userCheck, showUserView, adminCheck} from "./func_scripts/user_login_checker.js";
 
 
-// Сохраняем данные в Local Storage, если они еще не были сохранены
-if (!localStorage.getItem('logs')) {
-    localStorage.setItem('logs', JSON.stringify(logs));
-}
-
 // Получаем данные из Local Storage
 const storedLogs = JSON.parse(localStorage.getItem('userLogs')) || [];
 

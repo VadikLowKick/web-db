@@ -1,0 +1,262 @@
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f4f4f4;
+    text-align: center;
+}
+
+h1 {
+    font-size: 54px;
+    color: #333;
+}
+#usersList {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    padding: 20px;
+}
+
+.user-card {
+    background-color: #fff;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    margin: 10px;
+    padding: 25px;
+    width: 200px;
+    text-align: center;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+.user-card img {
+    border-radius: 50%;
+}
+
+
+.user-card #name {
+    font-weight: bold;
+    font-size: 24px;
+}
+
+.user-card p {
+    font-size: 22px;
+}
+
+#results {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px; /* Расстояние между карточками */
+    justify-content: center; /* Центрирует карточки по горизонтали */
+    padding: 20px;
+}
+#user-info {
+    position: fixed;
+    top: 10px;
+    right: 10px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    background-color: rgba(255, 255, 255, 0.8);
+    padding: 5px 10px;
+    border-radius: 20px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+}
+
+#user-info img {
+    border-radius: 50%;
+}
+
+#user-info span {
+    font-weight: bold;
+}
+
+.viewProfile {
+    margin-top: 4px;
+    padding: 15px 15px;
+    cursor: pointer;
+    background: linear-gradient(to right, #00c6ff, #0072ff); /* Градиент голубого */
+    color: white;
+    border: none;
+    border-radius: 5px;
+    font-weight: bold;
+}
+
+.viewProfile:hover {
+    background: linear-gradient(to right, #0072ff, #00c6ff);
+}
+
+#filter_users{
+    margin-top: 4px;
+    padding: 15px 30px;
+    cursor: pointer;
+    background: linear-gradient(to right, #00c6ff, #0072ff); /* Градиент голубого */
+    color: white;
+    border: none;
+    border-radius: 5px;
+    font-weight: bold;
+}
+#filter_users:hover {
+    background: linear-gradient(to right, #0072ff, #00c6ff);
+}
+
+#logoutButton{
+    margin-top: 4px;
+    padding: 5px 5px;
+    cursor: pointer;
+    background: linear-gradient(to right, #00c6ff, #0072ff); /* Градиент голубого */
+    color: white;
+    border: none;
+    border-radius: 5px;
+    font-weight: bold;
+}
+
+#logoutButton:hover {
+    background: linear-gradient(to right, #0072ff, #00c6ff);
+}
+
+#filterForm {
+    display: flex;
+    flex-direction: column; /* Элементы формы идут вертикально */
+    gap: 10px; /* Расстояние между строками */
+    width: 100%; /* Ширина формы */
+    max-width: 600px; /* Максимальная ширина формы */
+    margin: 0 auto; /* Центрируем форму */
+}
+
+#filterForm .row {
+    display: flex;
+    justify-content: space-between; /* Разделение элементов по строкам */
+    gap: 10px; /* Расстояние между элементами в строке */
+}
+
+#filterForm .center_row{
+    justify-content: center; /* Центрируем элементы внутри строки */
+    gap: 15px; /* Расстояние между элементами */
+}
+
+
+#filterForm label,
+#filterForm input,
+#filterForm select,
+#filterForm button {
+    padding: 8px; /* Внутренние отступы */
+    box-sizing: border-box; /* Учитываем padding и border в общей ширине */
+}
+
+#filterForm .input-group {
+    flex: 1 1 70%; /* Для элементов min/max, height, weight и rating, чтобы они занимали по 48% ширины */
+}
+
+#filterForm button {
+    background-color: #007bff;
+    color: white;
+    border: none;
+    cursor: pointer;
+    padding: 10px;
+    flex: 1 1 100%; /* Кнопка растягивается на всю ширину */
+}
+
+#filterForm button:hover {
+    background-color: #0056b3;
+}
+
+label[for="gender"] {
+    width: 100%; /* Задаем ширину для группы радио-кнопок */
+    margin-top: 10px;
+}
+
+label input[type="radio"] {
+    width: auto;
+    margin-right: 5px;
+}
+
+#view_all_users{
+    margin-top: 4px;
+    margin-bottom: 20px;
+    padding: 15px 30px;
+    cursor: pointer;
+    background: linear-gradient(to right, #00c6ff, #0072ff); /* Градиент голубого */
+    color: white;
+    border: none;
+    border-radius: 5px;
+    font-weight: bold;
+}
+
+#view_all_users:hover {
+    background: linear-gradient(to right, #0072ff, #00c6ff);
+}
+
+#profile-container {
+    display: flex; /* Используем flexbox для выравнивания */
+    gap: 20px; /* Отступ между фотографией и данными */
+    align-items: flex-start; /* Выровнять по верхнему краю */
+    margin-top: 20px; /* Отступ сверху */
+}
+
+#profile-image {
+    width: 500px; /* Задаем минимальную ширину */
+    height: 500px; /* Задаем минимальную высоту */
+    max-width: 100%; /* Ограничиваем максимальную ширину контейнера */
+    max-height: 100%; /* Ограничиваем максимальную высоту контейнера */
+    overflow: hidden; /* Скрываем лишнее, если изображение выходит за границы */
+    border-radius: 10px; /* Скругляем углы */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Тень вокруг изображения */
+    object-fit: cover; /* Обрезаем изображение, если оно не влезает в контейнер */
+}
+
+#profile-image img {
+    width: 100%; /* Растягиваем изображение на всю ширину контейнера */
+    height: 100%; /* Растягиваем изображение на всю высоту контейнера */
+    object-fit: cover; /* Обрезаем изображение, если оно не влезает */
+}
+
+#profile-details {
+    font-size: 25px; /* Увеличиваем размер шрифта */
+    flex-grow: 1; /* Делаем так, чтобы данные заполняли оставшееся пространство */
+    padding: 20px; /* Отступы вокруг данных */
+    border: 1px solid #ddd; /* Граница вокруг данных */
+    border-radius: 10px; /* Скругление углов */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Тень вокруг блока с данными */
+}
+
+#profile-details p {
+    margin: 10px; /* Отступы между абзацами */
+}
+#userRating {
+    font-size: 20px; /* Размер текста */
+    padding: 5px; /* Отступы вокруг текста */
+    width: 50px; /* Ширина выпадающего списка */
+    height: 40px; /* Высота выпадающего списка */
+    border-radius: 5px; /* Скругляем углы */
+    border: 2px solid #ccc; /* Добавляем границу */
+}
+
+#submitRating{
+    margin-top: 10px;
+    padding: 10px 15px;
+    cursor: pointer;
+    background: linear-gradient(to right, #00c6ff, #0072ff); /* Градиент голубого */
+    color: white;
+    border: none;
+    border-radius: 5px;
+    font-weight: bold;
+}
+#submitRating:hover {
+    background: linear-gradient(to right, #0072ff, #00c6ff);
+}
+
+#profileActions button{
+    margin: 10px 20px;
+    padding: 10px 15px;
+    cursor: pointer;
+    background: linear-gradient(to right, #00c6ff, #0072ff); /* Градиент голубого */
+    color: white;
+    border: none;
+    border-radius: 5px;
+    font-weight: bold;
+}
+#profileActions button:hover{
+    background: linear-gradient(to right, #0072ff, #00c6ff);
+}
+
+

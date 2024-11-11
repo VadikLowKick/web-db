@@ -54,11 +54,11 @@ const preset = {
     if (filteredUsers.length > 0) {
         filteredUsers.forEach(user => {
             const userItem = document.createElement('div');
-            userItem.classList.add('user-item');
+            userItem.classList.add('user-card');
             
             userItem.innerHTML = `
                 <img src="${user.profileImage || 'default-profile.png'}" alt="${user.name}" style="width: 100px; height: 100px;"/>
-                <p>${user.name}</p>
+                <p id='name'>${user.name}</p>
                 <p>${user.gender} ${user.age} y.o.</p>
                 <p>Рейтинг : ${user.avg_rating}</p>
                 <button class="viewProfile" data-email="${user.email}">View Profile</button>

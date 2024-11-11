@@ -25,9 +25,9 @@ document.addEventListener('DOMContentLoaded', function () {
         
         userItem.innerHTML = `
         <img src="${user.profileImage || 'default-profile.png'}" alt="${user.name}" style="width: 100px; height: 100px;"/>
-        <p>${user.name}</p>
+        <p id ="name">${user.name}</p>
         <p>${user.gender} ${user.age} y.o.</p>
-        <p>Рейтинг : ${user.avg_rating}</p>
+        <p>Rating : ${user.avg_rating}</p>
         <button id="view__profile_${user.email}" class="viewProfile" data-email="${user.email}">View Profile</button>`;
 
         usersList.appendChild(userItem);

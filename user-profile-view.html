@@ -4,12 +4,18 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>View User Profile</title>
-    <link rel="stylesheet" href="css/styles.css">
+    <link rel="stylesheet" href="css/user_styles.css">
 </head>
 <body>
     <div id="user-info"></div>
+    
     <h1>User Profile</h1>
-    <img id="profileImage" src="" alt="User Image" style="width: 200px; height: 200px;"/><br>
+    <div id="profile-container">
+        <div id="profile-image">
+            <img id="profileImage" src="" alt="User Image"/><br>
+
+        </div>
+    <div id="profile-details">
     <p><strong>Name:</strong> <span id="name"></span></p>
     <p><strong>Age:</strong> <span id="age"></span></p>
     <p><strong>Gender:</strong> <span id="gender"></span></p>
@@ -26,13 +32,13 @@
         <option value="3">3</option>
         <option value="4">4</option>
         <option value="5">5</option>
-    </select>
-    <button id="submitRating">Submit Rating</button>
-
-    <button id="back_to_users">Back to Users</button>
-
-    <div id="profileActions"></div>
-
+    </select><br>
+    <button id="submitRating">Submit Rating</button>   
+    </div>
+    </div>
+    <div id="profileActions">
+    <button id="back_to_users">Back to Users</button></div>
+    
     <script type="module" src="js/user-profile-view.js"></script>
     <script src="js/logger.js"></script>
 
