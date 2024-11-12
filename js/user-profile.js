@@ -66,8 +66,6 @@ document.addEventListener('DOMContentLoaded', function () {
 
         // Обновляем данные в sessionStorage
         sessionStorage.setItem('currentUser', JSON.stringify(currentUser));
-
-        alert('Profile updated successfully');
         window.location.href = 'user-profile-view.html';
     });
 

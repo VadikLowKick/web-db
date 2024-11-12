@@ -259,4 +259,85 @@ label input[type="radio"] {
     background: linear-gradient(to right, #0072ff, #00c6ff);
 }
 
+/* Устанавливаем отступы между элементами формы */
+#profileForm label, 
+#profileForm input, 
+#profileForm select, 
+#profileForm textarea, 
+#profileForm button {
+    margin: 10px; /* Отступ между элементами */
+    resize: none;
+}
+
+#profileForm label {
+    font-weight: bold;
+    font-size: 25px;
+}
+
+#profileForm input[type="radio"] {
+    margin-left: 10px;
+    width: 15px;             /* Ширина, чтобы занять доступное пространство */
+    height: 20px;           /* Задаем удобную высоту */
+    padding: 10px;
+
+}
+
+#profileForm button {
+    margin: 10px 20px;
+    padding: 10px 15px;
+    cursor: pointer;
+    background: linear-gradient(to right, #00c6ff, #0072ff); /* Градиент голубого */
+    color: white;
+    border: none;
+    border-radius: 5px;
+    font-weight: bold;
+}
+#profileForm button:hover{
+    background: linear-gradient(to right, #0072ff, #00c6ff);
+}
+
+
+/* Стилизация textarea */
+#profileForm input {
+    width: 200px;             /* Ширина, чтобы занять доступное пространство */
+    height: 40px;           /* Задаем удобную высоту */
+    padding: 10px;           /* Внутренний отступ для удобства ввода */
+    font-size: 16px;         /* Размер шрифта для удобного чтения */
+    border: 1px solid #ccc;  /* Цвет границы */
+    border-radius: 5px;      /* Скругленные углы */
+    resize: vertical;        /* Позволяем изменять высоту, но не ширину */
+    box-sizing: border-box;  /* Учитываем padding в ширине */
+}
+
+/* Эффект при фокусе для улучшения UX */
+#profileForm textarea:focus {
+    border-color: #007BFF;   /* Изменение цвета границы при фокусе */
+    outline: none;           /* Убираем стандартное выделение */
+    box-shadow: 0 0 5px rgba(0, 123, 255, 0.5); /* Легкое свечение при фокусе */
+}
+
+#profileForm select{
+    font-size: 20px; /* Размер текста */
+    padding: 3px; /* Отступы вокруг текста */
+    width: 115px; /* Ширина выпадающего списка */
+    height: 40px; /* Высота выпадающего списка */
+    border-radius: 5px; /* Скругляем углы */
+    border: 2px solid #ccc; /* Добавляем границу */
+}
+
+#viewUsers{
+    margin: 10px 20px;
+    padding: 10px 15px;
+    cursor: pointer;
+    background: linear-gradient(to right, #00c6ff, #0072ff); /* Градиент голубого */
+    color: white;
+    border: none;
+    border-radius: 5px;
+    font-weight: bold;
+}
+
+#viewUsers:hover{
+    background: linear-gradient(to right, #0072ff, #00c6ff);
+}
+
 
