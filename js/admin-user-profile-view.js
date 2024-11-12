@@ -59,3 +59,8 @@ document.addEventListener('DOMContentLoaded', function () {
         window.location.href = 'admin-users.html';
     });
 });
+
+function calculateAverageRating(ratings) {
+    const sum = ratings.reduce((acc, ratingObj) => acc + ratingObj.rating, 0);
+    return (sum / ratings.length).toFixed(1); // Округляем до 1 знака после запятой
+}

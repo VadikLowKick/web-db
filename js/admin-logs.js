@@ -5,7 +5,7 @@ import { userCheck, showUserView, adminCheck} from "./func_scripts/user_login_ch
 const storedLogs = JSON.parse(localStorage.getItem('userLogs')) || [];
 
 // Конфигурация для пагинации
-const rowsPerPage = 20; // Количество записей на странице
+const rowsPerPage = 15; // Количество записей на странице
 let currentPage = 1; // Текущая страница
 
 // Функция для отображения данных в таблице
@@ -62,3 +62,31 @@ document.addEventListener('DOMContentLoaded', function () {
     loadLogsToTable(currentPage)  
 });
 
+document.getElementById("saveButton").addEventListener("click", function() {
+    // Получаем данные из localStorage
+    const data = JSON.stringify(localStorage.getItem('userLogs'));
+
+    // Создаем Blob с типом "text/plain"
+    const blob = new Blob([data], { type: "text/plain" });
+
+    // Создаем ссылку для скачивания
+    const url = URL.createObjectURL(blob);
+
+    // Создаем временный элемент <a> для скачивания
+    const a = document.createElement("a");
+    a.href = url;
+    a.download = "log.txt"; // Указываем имя файла
+    document.body.appendChild(a);
+    a.click(); // Имитируем клик для скачивания
+
+    // Удаляем временный элемент
+    document.body.removeChild(a);
+
+    // Освобождаем URL-объект
+    URL.revokeObjectURL(url);
+});
+
+document.getElementById("clearButton").addEventListener("click", function() {
+    localStorage.removeItem('userLogs');
+    location.reload();
+});

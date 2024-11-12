@@ -4,69 +4,94 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Filter Users</title>
-    <link rel="stylesheet" href="css/styles.css">
+    <link rel="stylesheet" href="css/admin_styles.css">
 </head>
 <body>
     <div id="user-info"></div>
     <h1  id="header">Filter Users</h1>
     <button id="view_all">View All Catalogs</button></a>
     <form id="filterForm">
-        <label for="minAge">Min Age:</label>
-        <input type="number" id="minAge" required><br>
+        <div class="row">
+            <div class="input-group">
+                <label for="minAge">Min Age:</label>
+                <input type="number" id="minAge" required>
+            </div>
+            <div class="input-group">
+                <label for="maxAge">Max Age:</label>
+                <input type="number" id="maxAge" required>
+            </div>
+        </div>
 
-        <label for="maxAge">Max Age:</label>
-        <input type="number" id="maxAge" required><br>
+        <div class="center_row">
+            <label for="gender">Gender:</label><br>
+            <input type="checkbox" id="maleCheck" name="maleCheck" value="false"> Male<br>
+            <input type="checkbox" id="femaleCheck" name="femaleCheck" value="false"> Female<br>
+        </div>
 
-        <label for="gender">Gender:</label><br>
-        <input type="checkbox" id="maleCheck" name="maleCheck" value="false"> Male<br>
-        <input type="checkbox" id="femaleCheck" name="femaleCheck" value="false"> Female<br>
+        <div class="center_row">
+            <label for="zodiac">Zodiac Sign:</label>
+            <select id="zodiac">
+                <option value="">Any</option>
+                <option value="Aries">Aries</option>
+                <option value="Taurus">Taurus</option>
+                <option value="Gemini">Gemini</option>
+                <option value="Cancer">Cancer</option>
+                <option value="Leo">Leo</option>
+                <option value="Virgo">Virgo</option>
+                <option value="Libra">Libra</option>
+                <option value="Scorpio">Scorpio</option>
+                <option value="Sagittarius">Sagittarius</option>
+                <option value="Capricorn">Capricorn</option>
+                <option value="Aquarius">Aquarius</option>
+                <option value="Pisces">Pisces</option>
+            </select>
+        </div>
 
-        <label for="zodiac">Zodiac Sign:</label>
-        <select id="zodiac">
-            <option value="">Any</option>
-            <option value="Aries">Aries</option>
-            <option value="Taurus">Taurus</option>
-            <option value="Gemini">Gemini</option>
-            <option value="Cancer">Cancer</option>
-            <option value="Leo">Leo</option>
-            <option value="Virgo">Virgo</option>
-            <option value="Libra">Libra</option>
-            <option value="Scorpio">Scorpio</option>
-            <option value="Sagittarius">Sagittarius</option>
-            <option value="Capricorn">Capricorn</option>
-            <option value="Aquarius">Aquarius</option>
-            <option value="Pisces">Pisces</option>
-        </select><br>
+        <div class="row">
+            <div class="input-group">
+                <label for="minHeight">Min Height (cm):</label>
+                <input type="number" id="minHeight">
+            </div>
+            <div class="input-group">
+                <label for="maxHeight">Max Height (cm):</label>
+                <input type="number" id="maxHeight">
+            </div>
+        </div>
+    
+        <!-- min и max Weight на одной строке -->
+        <div class="row">
+            <div class="input-group">
+                <label for="minWeight">Min Weight (kg):</label>
+                <input type="number" id="minWeight">
+            </div>
+            <div class="input-group">
+                <label for="maxWeight">Max Weight (kg):</label>
+                <input type="number" id="maxWeight">
+            </div>
+        </div>
+    
+        <!-- min и max Rating на одной строке -->
+        <div class="row">
+            <div class="input-group">
+                <label for="minRating">Min Rating:</label>
+                <input type="number" id="minRating">
+            </div>
+            <div class="input-group">
+                <label for="maxRating">Max Rating:</label>
+                <input type="number" id="maxRating">
+            </div>
+        </div>
+        <div class="center_row">
+            <label for="hiddenCheck">Only Hidden Profiles</label>
+            <input type="checkbox" id="hiddenCheck" name="hiddenCheck" value="false"><br>
 
+            <label for="visibleCheck">Only Visible Profiles</label>
+            <input type="checkbox" id="visibleCheck" name="visibleCheck" value="false"><br>
+        </div>
 
-
-        <label for="minHeight">Min Height (cm):</label>
-        <input type="number" id="minHeight"><br>
-
-        <label for="maxHeight">Max Height (cm):</label>
-        <input type="number" id="maxHeight"><br>
-
-        <label for="minWeight">Min Weight (kg):</label>
-        <input type="number" id="minWeight"><br>
-
-        <label for="maxWeight">Max Weight (kg):</label>
-        <input type="number" id="maxWeight"><br>
-
-
-        <label for="minRating">Min Rating:</label>
-        <input type="number" id="minRating"><br>
-
-        <label for="maxRating">Max Rating:</label>
-        <input type="number" id="maxRating"><br>
-
-        <label for="hiddenCheck">Only Hidden Profiles</label>
-        <input type="checkbox" id="hiddenCheck" name="hiddenCheck" value="false"><br>
-
-        <label for="visibleCheck">Only Visible Profiles</label>
-        <input type="checkbox" id="visibleCheck" name="visibleCheck" value="false"><br>
-
-
-        <button type="submit">Filter</button>
+        <div class="center_row">
+            <button id="submit" type="submit">Filter</button>
+        </div>
     </form>
     <button id="savePreset">Save as Catalog preset</button>
 

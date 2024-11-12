@@ -4,11 +4,13 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>User Activity Logs</title>
-    <link rel="stylesheet" href="css/styles.css">
+    <link rel="stylesheet" href="css/admin_styles.css">
 </head>
 <body>
     <div id="user-info"></div>
     <h1>User Activity Logs</h1>
+    <button class="backbutton" id="saveButton">Save to log.txt</button>
+    <button class="backbutton" id="clearButton">Clear logs</button>
     <table id="logsTable">
         <thead>
             <tr>
@@ -27,7 +29,7 @@
     </div>
     
     <div id ='buttons'>
-        <a href="admin-dashboard.html"><button>Back to Dashboard</button></a>
+        <a href="admin-dashboard.html"><button class="backbutton">Back to Dashboard</button></a>
     </div>
     <script type="module" src="js/admin-logs.js"></script>
 </body>

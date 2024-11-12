@@ -28,15 +28,11 @@ document.addEventListener('DOMContentLoaded', function () {
         userCard.classList.add('user-card');
 
         userCard.innerHTML = `
-            <img src="${user.profileImage}" alt="${user.name}'s photo" width="100">
-            <h2>${user.name}</h2>
-            <p>Age: ${user.age}</p>
-            <p>Height: ${user.height} cm</p>
-            <p>Weight: ${user.weight} kg</p>
-            <p>Zodiac: ${user.zodiac}</p>
-            <p>Description: ${user.description}</p>
-            <button class="viewProfile" data-email="${user.email}">View Profile</button>
-        `;
+            <img src="${user.profileImage || 'default-profile.png'}" alt="${user.name}" style="width: 100px; height: 100px;"/>
+        <p id ="name">${user.name}</p>
+        <p>${user.gender} ${user.age} y.o.</p>
+        <p>Rating : ${user.avg_rating}</p>
+        <button id="view__profile_${user.email}" class="viewProfile" data-email="${user.email}">View Profile</button>`;
 
         usersList.appendChild(userCard);
     });

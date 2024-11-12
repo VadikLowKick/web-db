@@ -16,7 +16,7 @@ document.addEventListener('DOMContentLoaded', function () {
         userItem.classList.add('user-card');
         const filteredUsers = filterWithPreset(users, preset.preset)
         userItem.innerHTML = `
-        <p>${preset.name}</p>
+        <p><strong>${preset.name}</strong></p>
         <p>${filteredUsers.length}</p>
         <button class="viewCatalog" data="${preset.name}">View</button>
     `;
