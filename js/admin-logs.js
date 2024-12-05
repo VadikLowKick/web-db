@@ -59,34 +59,52 @@ document.addEventListener('DOMContentLoaded', function () {
     userCheck();
     adminCheck(true);
     showUserView();
-    loadLogsToTable(currentPage)  
+    loadLogsToTable(currentPage);
 });
 
-document.getElementById("saveButton").addEventListener("click", function() {
-    // Получаем данные из localStorage
-    const data = JSON.stringify(localStorage.getItem('userLogs'));
+// Функция для преобразования логов в XML
+function logsToXML(logs) {
+    let xml = '<?xml version="1.0" encoding="UTF-8"?>\n<logs>\n';
+    logs.forEach(log => {
+        xml += `  <log>\n`;
+        xml += `    <user>${log.user}</user>\n`;
+        xml += `    <action>${log.action}</action>\n`;
+        xml += `    <timestamp>${log.timestamp}</timestamp>\n`;
+        xml += `  </log>\n`;
+    });
+    xml += '</logs>';
+    return xml;
+}
 
-    // Создаем Blob с типом "text/plain"
+document.getElementById("saveButton").addEventListener("click", function () {
+    const format = document.getElementById('formatSelect').value; // Получаем выбранный формат
+    let data;
+    let fileName;
+
+    if (format === 'json') {
+        // Формат JSON
+        data = JSON.stringify(storedLogs, null, 2); // Форматируем для читабельности
+        fileName = "log.json";
+    } else if (format === 'xml') {
+        // Формат XML
+        data = logsToXML(storedLogs);
+        fileName = "log.xml";
+    } else {
+        // Формат TXT (по умолчанию)
+        data = storedLogs.map(log => `${log.user} | ${log.action} | ${log.timestamp}`).join('\n');
+        fileName = "log.txt";
+    }
+
+    // Создаём Blob
     const blob = new Blob([data], { type: "text/plain" });
 
-    // Создаем ссылку для скачивания
+    // Создаём ссылку для скачивания
     const url = URL.createObjectURL(blob);
-
-    // Создаем временный элемент <a> для скачивания
     const a = document.createElement("a");
     a.href = url;
-    a.download = "log.txt"; // Указываем имя файла
+    a.download = fileName;
     document.body.appendChild(a);
-    a.click(); // Имитируем клик для скачивания
-
-    // Удаляем временный элемент
+    a.click();
     document.body.removeChild(a);
-
-    // Освобождаем URL-объект
     URL.revokeObjectURL(url);
-});
-
-document.getElementById("clearButton").addEventListener("click", function() {
-    localStorage.removeItem('userLogs');
-    location.reload();
 });

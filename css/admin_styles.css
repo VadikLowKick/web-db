@@ -344,3 +344,24 @@ label input[type="radio"] {
 #savePreset:hover{
     background-color: #ddd;
 }
+
+/* Центрирование всего модуля на странице */
+#controls {
+    display: flex; /* Используем Flexbox для выравнивания элементов */
+    justify-content: space-between; /* Размещаем элементы по краям */
+    align-items: center; /* Центрируем элементы по вертикали */
+    width: 60%; /* Устанавливаем ширину контейнера */
+    margin: 0 auto; /* Центрируем контейнер по горизонтали */
+    padding: 20px; /* Внутренние отступы для удобства */
+    border: 1px solid #ddd; /* Рамка для модуля (опционально) */
+    border-radius: 8px; /* Скругление углов */
+    background-color: #f9f9f9; /* Фон (опционально) */
+    gap: 10px; /* Отступы между кнопками и select */
+}
+
+/* Блок кнопки Save и select */
+#save-group {
+    display: flex; /* Группируем select и кнопку Save */
+    align-items: center; /* Центрируем их по вертикали */
+    gap: 10px; /* Расстояние между кнопкой и select */
+}

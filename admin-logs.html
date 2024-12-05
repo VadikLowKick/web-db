@@ -9,8 +9,25 @@
 <body>
     <div id="user-info"></div>
     <h1>User Activity Logs</h1>
-    <button class="backbutton" id="saveButton">Save to log.txt</button>
-    <button class="backbutton" id="clearButton">Clear logs</button>
+    
+    <div id="controls">
+        <!-- Группа кнопки Save и Select -->
+        <div id="save-group">
+            <button class="backbutton" id="saveButton">Save as file</button>
+            <div id="select-container">
+                <label for="formatSelect">Select file format:</label>
+                <select id="formatSelect">
+                    <option value="txt">TXT</option>
+                    <option value="json">JSON</option>
+                    <option value="xml">XML</option>
+                </select>
+            </div>
+        </div>
+        
+        <!-- Кнопка Clear отдельно -->
+        <button class="backbutton" id="clearButton">Clear logs</button>
+    </div>
+    <!-- Таблица логов -->
     <table id="logsTable">
         <thead>
             <tr>
@@ -24,13 +41,16 @@
         </tbody>
     </table>
     
+    <!-- Пагинация -->
     <div id="pagination">
         <!-- Кнопки пагинации будут добавляться здесь -->
     </div>
     
-    <div id ='buttons'>
+    <!-- Кнопка для возврата в панель администратора -->
+    <div id="buttons">
         <a href="admin-dashboard.html"><button class="backbutton">Back to Dashboard</button></a>
     </div>
+
     <script type="module" src="js/admin-logs.js"></script>
 </body>
 </html>
