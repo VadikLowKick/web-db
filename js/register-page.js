@@ -24,11 +24,11 @@ document.getElementById('registrationForm').addEventListener('submit', function(
         password: password,
         name: '',
         age: '',
+        avg_rating:"0",
         height: '',
         weight: '',
         zodiac: '',
-        description: '',
-        rating: 0
+        description: ''
     };
     
     sessionStorage.setItem('currentUser', JSON.stringify(newUser));  // Сохраняем текущего пользователя в sessionStorage

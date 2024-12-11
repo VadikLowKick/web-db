@@ -56,7 +56,7 @@ document.addEventListener('DOMContentLoaded', function () {
 
     // Кнопка для возврата к списку пользователей
     document.getElementById('back').addEventListener('click', function () {
-        window.location.href = 'admin-users.html';
+        window.location.href = 'admin-filter-page.html';
     });
 });
 

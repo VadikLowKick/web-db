@@ -98,7 +98,7 @@ h1 {
 
 .user-item {
     border: 1px solid #ccc;
-    padding: 10px;
+    padding: 30px;
     text-align: center;
     width: 150px;
     box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.1);
@@ -265,6 +265,50 @@ th {
     margin: 22px; /* Отступы между абзацами */
 }
 
+header button {
+    background: white;
+    border: none;
+    padding: 20px 40px;
+    font-size: 18px; 
+    margin-top: 15px;
+    cursor: pointer;
+    border-radius: 5px;
+}
+
+header button:hover {
+    background: #ccc;
+}
+
+/* Сайдбар */
+#sidebar {
+    position: fixed;
+    top: 0;
+    left: -370px; /* Скрытый сайдбар */
+    width: 350px;
+    height: 100%;
+    background: #f9f9f9;
+    box-shadow: 2px 0 5px rgba(0, 0, 0, 0.1);
+    padding: 20px;
+    overflow-y: auto;
+    transition: left 0.3s ease;
+    z-index: 1000;
+}
+
+#sidebar.active {
+    left: 0; /* Показываем сайдбар */
+}
+
+/* Основная часть */
+main {
+    margin: 20px;
+    padding: 20px;
+    flex: 1;
+}
+
+main h2 {
+    margin-bottom: 15px;
+}
+
 #filterForm {
     display: flex;
     flex-direction: column; /* Элементы формы идут вертикально */
@@ -295,7 +339,7 @@ th {
 }
 
 #filterForm .input-group {
-    flex: 1 1 70%; /* Для элементов min/max, height, weight и rating, чтобы они занимали по 48% ширины */
+    flex: 1 1; /* Для элементов min/max, height, weight и rating, чтобы они занимали по 48% ширины */
 }
 
 #filterForm button {
@@ -364,4 +408,14 @@ label input[type="radio"] {
     display: flex; /* Группируем select и кнопку Save */
     align-items: center; /* Центрируем их по вертикали */
     gap: 10px; /* Расстояние между кнопкой и select */
+}
+
+#timestampHeader {
+    cursor: pointer; /* Указатель мыши меняется на руку */
+    transition: background-color 0.3s, color 0.3s; /* Плавный переход для фона и цвета */
+}
+
+#timestampHeader:hover {
+    background-color: #f1f1f1; /* Легкий фон при наведении */
+    color: #007bff; /* Изменение цвета текста при наведении */
 }

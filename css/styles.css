@@ -1,198 +1,137 @@
+/* Общие стили для центрирования */
 body {
-    font-family: Arial, sans-serif;
+    display: flex;
+    flex-direction: column; /* Располагаем элементы вертикально */
+    justify-content: center; /* Центрируем по вертикали */
+    align-items: center; /* Центрируем по горизонтали */
+    min-height: 100vh; /* Высота экрана */
     margin: 0;
-    padding: 0;
-    background-color: #f4f4f4;
-    text-align: center;
+    font-family: Arial, sans-serif; /* Устанавливаем шрифт */
+    background-color: #f9f9f9; /* Добавляем фоновый цвет */
 }
 
+/* Заголовок */
 h1 {
+    margin-bottom: 20px;
     color: #333;
 }
 
-#usersList {
+/* Стили для формы */
+#registrationForm {
     display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
-    padding: 20px;
+    flex-direction: column;
+    gap: 10px;
+    width: 300px;
 }
 
-.user-card {
-    background-color: #fff;
-    border: 1px solid #ccc;
-    border-radius: 5px;
-    margin: 10px;
-    padding: 10px;
-    width: 200px;
-    text-align: center;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+/* Поля формы */
+#registrationForm label {
+    display: block;
+    margin-bottom: 5px;
+    font-weight: bold;
 }
 
-.user-card img {
-    border-radius: 50%;
+#registrationForm input {
+    width: 100%;
+    padding: 8px;
+    box-sizing: border-box;
 }
 
-.user-card h2 {
-    font-size: 20px;
-    margin: 10px 0;
-}
-
-.user-card p {
-    font-size: 16px;
-    color: #555;
-}
-
-#results {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 20px; /* Расстояние между карточками */
-    justify-content: center; /* Центрирует карточки по горизонтали */
-    padding: 20px;
-}
-
-.user-item {
-    border: 1px solid #ccc;
-    padding: 10px;
-    text-align: center;
-    width: 150px;
-    box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.1);
-}
-
-.user-item img {
-    border-radius: 50%;
-}
-
-.user-item button {
+/* Кнопка регистрации */
+button {
     margin-top: 10px;
-    padding: 5px 10px;
-    cursor: pointer;
-    background: linear-gradient(to right, #00c6ff, #0072ff); /* Градиент голубого */
+    padding: 10px;
+    background-color: #007BFF;
     color: white;
     border: none;
     border-radius: 5px;
-    font-weight: bold;
-}
-
-.user-item button:hover {
-    background: linear-gradient(to right, #0072ff, #00c6ff);
-}
-
-#user-info {
-    position: fixed;
-    top: 10px;
-    right: 10px;
-    display: flex;
-    align-items: center;
-    gap: 10px;
-    background-color: rgba(255, 255, 255, 0.8);
-    padding: 5px 10px;
-    border-radius: 20px;
-    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
-}
-
-#user-info img {
-    border-radius: 50%;
-}
-
-#user-info span {
-    font-weight: bold;
-}
-
-#result {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
-    padding: 20px;
-}
-
-/* Стили для модального окна */
-.modal {
-    display: none; /* Скрываем модальное окно по умолчанию */
-    position: fixed;
-    z-index: 1;
-    left: 0;
-    top: 0;
-    width: 100%;
-    height: 100%;
-    background-color: rgba(0, 0, 0, 0.5); /* Темный фон */
-}
-
-.modal-content {
-    background-color: #fff;
-    margin: 15% auto;
-    padding: 20px;
-    border: 1px solid #888;
-    width: 300px;
-    text-align: center;
-}
-
-.close {
-    color: #aaa;
-    float: right;
-    font-size: 24px;
-    font-weight: bold;
-}
-
-.close:hover,
-.close:focus {
-    color: #000;
     cursor: pointer;
 }
 
-table {
-    width: 100%;
-    border-collapse: collapse;
+button:hover {
+    background-color: #0056b3;
 }
 
-th, td {
-    border: 1px solid #ddd;
-    padding: 8px;
-    text-align: left;
-}
-
-th {
-    background-color: #f2f2f2;
-}
-
-#pagination {
+/* Ссылка под формой */
+p {
     margin-top: 15px;
-    text-align: center;
+    font-size: 14px;
 }
 
-.pagination-button {
-    padding: 5px 10px;
-    margin: 0 2px;
-    cursor: pointer;
+p a {
+    color: #007BFF;
+    text-decoration: none;
 }
 
-.pagination-button.active {
-    font-weight: bold;
-    background-color: #ddd;
+p a:hover {
+    text-decoration: underline;
 }
 
-#buttons {
-    margin-top: 15px;
-    text-align: center;
+/* Общие стили для тела страницы */
+body {
+    display: flex;
+    flex-direction: column; /* Располагаем элементы вертикально */
+    justify-content: center; /* Центрируем по вертикали */
+    align-items: center; /* Центрируем по горизонтали */
+    min-height: 100vh; /* Высота экрана */
+    margin: 0;
+    font-family: Arial, sans-serif; /* Устанавливаем шрифт */
+    background-color: #f9f9f9; /* Добавляем фоновый цвет */
 }
 
-/* Выравнивание всех элементов на странице пользователя */
-.user-page {
+/* Заголовок */
+h1 {
+    margin-bottom: 20px;
+    color: #333;
+}
+
+/* Стили для форм */
+form {
     display: flex;
     flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    padding: 20px;
-}
-
-/* Изменение размера всех элементов ввода */
-input, select, textarea, button {
-    font-size: 16px; /* Увеличиваем размер шрифта */
-    padding: 10px;
-    margin: 10px;
-    border-radius: 5px;
-    border: 1px solid #ccc;
-}
-
-input[type="text"], input[type="email"], input[type="password"], select, textarea {
+    gap: 10px;
     width: 300px;
+}
+
+/* Поля форм */
+form label {
+    display: block;
+    margin-bottom: 5px;
+    font-weight: bold;
+}
+
+form input {
+    width: 100%;
+    padding: 8px;
+    box-sizing: border-box;
+}
+
+/* Кнопки форм */
+button {
+    margin-top: 10px;
+    padding: 10px;
+    background-color: #007BFF;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+button:hover {
+    background-color: #0056b3;
+}
+
+/* Ссылки под формой */
+p {
+    margin-top: 15px;
+    font-size: 14px;
+}
+
+p a {
+    color: #007BFF;
+    text-decoration: none;
+}
+
+p a:hover {
+    text-decoration: underline;
 }
