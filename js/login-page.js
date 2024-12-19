@@ -9,16 +9,16 @@ document.getElementById('loginForm').addEventListener('submit', function(event) 
     let user = users.find(u => u.email === email);
 
     if (user) {
-        // Проверяем пароль
+
         if (user.password === password) {
             user.IsAdmin = false
-            sessionStorage.setItem('currentUser', JSON.stringify(user));  // Сохраняем текущего пользователя в sessionStorage
+            sessionStorage.setItem('currentUser', JSON.stringify(user)); 
             
-            // Проверяем, заполнены ли данные профиля
+
             if (!user.name || !user.age || !user.height || !user.weight) {
-                window.location.href = 'user-profile.html';  // Переход на страницу заполнения профиля
+                window.location.href = 'user-profile.html'; 
             } else {
-                window.location.href = 'user-profile-view.html';  // Переход на страницу просмотра пользователей
+                window.location.href = 'user-profile-view.html'; 
             }
         } 
         else {
@@ -31,14 +31,11 @@ document.getElementById('loginForm').addEventListener('submit', function(event) 
 });
 function errorMessage(){
     if (!document.querySelector('.error-message')) {
-        const paragraph = document.createElement('p'); // Создаем элемент заголовка
-        paragraph.textContent = 'Incorrect name or password'; // Устанавливаем текст заголовка
-        paragraph.style.color = 'red'; // Делаем текст красным
-        paragraph.style.textAlign = 'center'; // Центрируем заголовок
-      
-        // Добавляем класс для упрощения поиска в будущем
+        const paragraph = document.createElement('p'); 
+        paragraph.textContent = 'Incorrect name or password';
+        paragraph.style.color = 'red';
+        paragraph.style.textAlign = 'center'; 
         paragraph.classList.add('error-message');
-      
-        document.body.appendChild(paragraph); // Добавляем заголовок в body
+        document.body.appendChild(paragraph);
       }
 };

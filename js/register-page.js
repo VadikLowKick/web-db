@@ -31,7 +31,7 @@ document.getElementById('registrationForm').addEventListener('submit', function(
         description: ''
     };
     
-    sessionStorage.setItem('currentUser', JSON.stringify(newUser));  // Сохраняем текущего пользователя в sessionStorage
+    sessionStorage.setItem('currentUser', JSON.stringify(newUser)); 
 
     users.push(newUser);
     localStorage.setItem('users', JSON.stringify(users));

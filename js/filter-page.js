@@ -25,7 +25,6 @@ document.getElementById('filterForm').addEventListener('submit', function (e) {
     const maxRating = parseFloat(document.getElementById('maxRating').value);
 
 
-    // Создаем preset
 const preset = {
     minAge: isNaN(minAge) ? null : minAge,
     maxAge: isNaN(maxAge) ? null : maxAge,
@@ -40,16 +39,14 @@ const preset = {
     IsHidden : null
 };
     
-
-    // Получаем всех пользователей из LocalStorage
     const users = JSON.parse(localStorage.getItem('users')) || [];
 
     var filteredUsers = filterWithPreset(users, preset)
 
 
-    // Отображаем результаты
+
     const resultsDiv = document.getElementById('results');
-    resultsDiv.innerHTML = ''; // Очищаем результаты перед добавлением новых
+    resultsDiv.innerHTML = '';
 
     if (filteredUsers.length > 0) {
         filteredUsers.forEach(user => {
@@ -66,7 +63,6 @@ const preset = {
             resultsDiv.appendChild(userItem);
         });
 
-        // Обрабатываем нажатие кнопки "View Profile"
         document.querySelectorAll('.viewProfile').forEach(button => {
             button.addEventListener('click', function () {
                 sessionStorage.setItem('viewUserEmail', this.getAttribute('data-email'));

@@ -17,27 +17,34 @@
             </div>
     <div id="profile-details">
         <form id="profileForm">
-            <label for="name">Name:</label><br>
+
+            <div class="form-group">
+            <label for="name">Name:</label>
             <input type="text" id="name" required><br>
+            </div>
 
-            <label for="age">Age:</label><br>
+            <div class="form-group">
+            <label for="age">Age:</label>
             <input type="number" id="age" required><br>
+            </div>
 
-            <label for="gender">Gender:</label><br>
-            <label>
-                <input type="radio" name="gender" value="Male" required> Мale
-            </label><br>
-            <label>
-                <input type="radio" name="gender" value="Female" required> Female
-            </label><br>
-
-            <label for="height">Height (cm):</label><br>
+            <div class="form-group">
+            <label for="gender">Gender:</label>
+            <label style="text-align: right; width: 45px" >Мale</label>
+            <input type="radio" name="gender" value="Male" required> 
+            <label style="text-align: right; width: 45px; margin-right: 42px;">Female</label><br>
+            <input type="radio" name="gender" value="Female" required>
+            </div>
+            <div class="form-group">
+            <label for="height">Height (cm):</label>
             <input type="number" id="height" required><br>
-
-            <label for="weight">Weight (kg):</label><br>
+            </div>
+            <div class="form-group">
+            <label for="weight">Weight (kg):</label>
             <input type="number" id="weight" required><br>
-
-            <label for="zodiac">Zodiac:</label><br>
+            </div>
+            <div class="form-group">
+            <label for="zodiac">Zodiac:</label>
             <select id="zodiac" required>
                 <option value="Aries">Aries</option>
                 <option value="Taurus">Taurus</option>
@@ -52,10 +59,11 @@
                 <option value="Aquarius">Aquarius</option>
                 <option value="Pisces">Pisces</option>
             </select><br>
-
+            </div>
+            <div class="form-group">
             <label for="description">Description:</label><br>
             <textarea id="description"></textarea><br>
-
+            </div>
             <button id = "Save_Profile" type="submit">Save Profile</button>
         </form>
     </div>

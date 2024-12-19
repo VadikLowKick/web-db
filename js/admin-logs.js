@@ -1,26 +1,19 @@
 import { userCheck, showUserView, adminCheck } from "./func_scripts/user_login_checker.js";
 
-// Получаем данные из Local Storage
+
 var storedLogs = JSON.parse(localStorage.getItem('userLogs')) || [];
 
 // Конфигурация для пагинации
 const rowsPerPage = 15; // Количество записей на странице
-let currentPage = 1; // Текущая страница
-let isAscending = true; // Состояние сортировки (по возрастанию)
-// Функция для парсинга даты в формате DD.MM.YYYY, HH:mm:ss
+let currentPage = 1;
+let isAscending = true; 
+
+
 function parseCustomDate(dateString) {
-    // Разделяем дату и время по запятой
     const [datePart, timePart] = dateString.split(', ');
-
-    // Разбиваем дату по точке
     const [day, month, year] = datePart.split('.');
-
-    // Разбиваем время по двоеточию
     const [hours, minutes, seconds] = timePart.split(':');
-
-    // Создаем объект Date
-    const date = new Date(year, month - 1, day, hours, minutes, seconds); // Месяцы начинаются с 0
-
+    const date = new Date(year, month - 1, day, hours, minutes, seconds);
     return date;
 }
 
@@ -31,7 +24,6 @@ function sortLogs() {
         const dateA = parseCustomDate(a.timestamp);
         const dateB = parseCustomDate(b.timestamp);
         console.log(dateA , "|", dateB, Math.abs(dateA - dateB))
-        // Сортировка по возрастанию или убыванию
         return isAscending ? dateA - dateB : dateB - dateA;
     });
 }
@@ -39,14 +31,11 @@ function sortLogs() {
 // Функция для отображения данных в таблице
 function loadLogsToTable(page) {
     const tableBody = document.getElementById('logsTable').querySelector('tbody');
-    tableBody.innerHTML = ''; // Очищаем таблицу перед заполнением
-
-    // Вычисляем индексы для текущей страницы
+    tableBody.innerHTML = ''; 
     const startIndex = (page - 1) * rowsPerPage;
     const endIndex = startIndex + rowsPerPage;
     const paginatedLogs = storedLogs.slice(startIndex, endIndex);
 
-    // Добавляем строки таблицы для текущей страницы
     paginatedLogs.forEach(log => {
         const row = document.createElement('tr');
         row.innerHTML = `
@@ -57,18 +46,17 @@ function loadLogsToTable(page) {
         tableBody.appendChild(row);
     });
 
-    // Обновляем кнопки пагинации
     updatePagination();
 }
 
 // Функция для создания кнопок пагинации
 function updatePagination() {
     const paginationDiv = document.getElementById('pagination');
-    paginationDiv.innerHTML = ''; // Очищаем блок пагинации перед обновлением
+    paginationDiv.innerHTML = '';
 
     const totalPages = Math.ceil(storedLogs.length / rowsPerPage);
 
-    // Создаем кнопки для каждой страницы
+
     for (let i = 1; i <= totalPages; i++) {
         const button = document.createElement('button');
         button.textContent = i;
@@ -81,22 +69,21 @@ function updatePagination() {
         paginationDiv.appendChild(button);
     }
 }
-// Добавляем обработчик для сортировки по колонке Timestamp
+// Обработчик для сортировки по колонке Timestamp
 const timestampHeader = document.getElementById('timestampHeader');
 timestampHeader.addEventListener('click', () => {
-    isAscending = !isAscending; // Переключаем порядок сортировки
-    sortLogs(); // Сортируем все логи
+    isAscending = !isAscending; 
+    sortLogs(); 
     loadLogsToTable(currentPage);
     console.log('sorted');
 });
 
-// Загружаем данные в таблицу при загрузке страницы
+
 document.addEventListener('DOMContentLoaded', function () {
     userCheck();
     adminCheck(true);
     showUserView();
     sortLogs();
-    // Сортируем и загружаем таблицу при загрузке страницы
     loadLogsToTable(currentPage);
 });
 
@@ -116,25 +103,25 @@ function logsToXML(logs) {
 
 // Обработчик для кнопки сохранения логов
 document.getElementById("saveButton").addEventListener("click", function () {
-    const format = document.getElementById('formatSelect').value; // Получаем выбранный формат
+    const format = document.getElementById('formatSelect').value; 
     let data;
     let fileName;
 
     if (format === 'json') {
         // Формат JSON
-        data = JSON.stringify(storedLogs, null, 2); // Форматируем для читабельности
+        data = JSON.stringify(storedLogs, null, 2);
         fileName = "log.json";
     } else if (format === 'xml') {
         // Формат XML
         data = logsToXML(storedLogs);
         fileName = "log.xml";
     } else {
-        // Формат TXT (по умолчанию)
+        // Формат TXT 
         data = storedLogs.map(log => `${log.user} | ${log.action} | ${log.timestamp}`).join('\n');
         fileName = "log.txt";
     }
 
-    // Создаём Blob
+
     const blob = new Blob([data], { type: "text/plain" });
 
     // Создаём ссылку для скачивания

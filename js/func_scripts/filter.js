@@ -1,12 +1,12 @@
 export function filterWithPreset(users, preset) {
     return users.filter(user => {
-        // Преобразуем значения полей пользователя в числовой формат, если необходимо
+
         const userAge = parseInt(user.age, 10);
         const userHeight = parseInt(user.height, 10);
         const userWeight = parseInt(user.weight, 10);
         const userRating = parseFloat(user.avg_rating);
         
-        // Проверяем каждый параметр из preset
+        
         const ageInRange = (!preset.minAge && preset.minAge !== 0 || userAge >= preset.minAge) && 
                            (!preset.maxAge && preset.maxAge !== 0 || userAge <= preset.maxAge);
         const heightInRange = (!preset.minHeight && preset.minHeight !== 0 || userHeight >= preset.minHeight) && 
@@ -18,10 +18,10 @@ export function filterWithPreset(users, preset) {
         const genderMatch = preset.gender === null || user.gender === preset.gender;
         const zodiacMatch = preset.zodiac === null || user.zodiac === preset.zodiac;
 
-        // Новая проверка по параметру isHidden (если есть)
+
         const hiddenMatch = preset.IsHidden === null || user.IsHidden === preset.IsHidden;
 
-        // Возвращаем true, если все условия выполнены
+
         return ageInRange && heightInRange && weightInRange && ratingInRange && genderMatch && zodiacMatch && hiddenMatch;
     });
 }

@@ -2,7 +2,7 @@
 export function userCheck(){ 
     const currentUser = JSON.parse(sessionStorage.getItem('currentUser'));
     if (!currentUser) {
-        window.location.href = 'login.html';  // Перенаправление на главную страницу
+        window.location.href = 'login.html'; 
         return;
         }
 }
@@ -13,7 +13,7 @@ export function adminCheck(relocate = false){
         return true;
     }
     if (!currentUser.IsAdmin && relocate){
-            window.location.href = 'users.html';  // Перенаправление на главную страницу
+            window.location.href = 'users.html'; 
             return;
         }
     if (!currentUser.IsAdmin && !relocate){
@@ -48,10 +48,9 @@ export function showUserView(){
     });
 
     
-    // Добавляем обработчик события для кнопки "Logout"
     document.getElementById('logoutButton').addEventListener('click', function() {
         sessionStorage.clear();
-        window.location.href = 'registration.html'; // Страница регистрации
+        window.location.href = 'registration.html';
     });
     
 }

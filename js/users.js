@@ -3,11 +3,7 @@ import { userCheck, showUserView, adminCheck} from "./func_scripts/user_login_ch
 document.addEventListener('DOMContentLoaded', function () {
     userCheck();
     showUserView();
-
-
     const usersList = document.getElementById('usersList');
-
-    // Получаем пользователей из Local Storage
     const users = JSON.parse(localStorage.getItem('users')) || [];
 
     if (users.length === 0) {
@@ -33,7 +29,7 @@ document.addEventListener('DOMContentLoaded', function () {
         usersList.appendChild(userItem);
     });
 
-    // Переход на страницу просмотра профиля
+
     document.querySelectorAll('.viewProfile').forEach(button => {
         button.addEventListener('click', function () {
             sessionStorage.setItem('viewUserEmail', this.getAttribute('data-email'));

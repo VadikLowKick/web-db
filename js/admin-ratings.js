@@ -17,13 +17,9 @@ document.addEventListener('DOMContentLoaded', function () {
     let sortDescending = true; // По умолчанию сортировка по убыванию
 
     const renderUsers = () => {
-        // Очищаем контейнер
+
         ratingsList.innerHTML = '';
-
-        // Сортируем пользователей в зависимости от текущего порядка
         users.sort((a, b) => sortDescending ? b.avg_rating - a.avg_rating : a.avg_rating - b.avg_rating);
-
-        // Рендерим пользователей
         users.forEach(user => {
             const userCard = document.createElement('div');
             userCard.classList.add('user-card');
@@ -39,9 +35,9 @@ document.addEventListener('DOMContentLoaded', function () {
 
     // Обработчик нажатия на кнопку для переключения сортировки
     toggleSortButton.addEventListener('click', () => {
-        sortDescending = !sortDescending; // Переключаем порядок сортировки
-        renderUsers(); // Перерисовываем список пользователей
+        sortDescending = !sortDescending; 
+        renderUsers(); 
     });
 
-    renderUsers(); // Первоначальный рендеринг пользователей
+    renderUsers();
 });

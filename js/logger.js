@@ -1,4 +1,3 @@
-// Сохранение логов в LocalStorage
 const currentUser = JSON.parse(sessionStorage.getItem('currentUser')); //Email пользователя, который вошел в аккаунт
 function logAction(action) {
     const logs = JSON.parse(localStorage.getItem('userLogs')) || [];
@@ -12,6 +11,7 @@ function logAction(action) {
 
 // Функция для отслеживания всех кликов и ввода данных
 function trackUserActions() {
+    
     // Отслеживание нажатий на элементы формы
     document.addEventListener('click', function (event) {
         const element = event.target;
@@ -28,6 +28,4 @@ function trackUserActions() {
         }
     });
 }
-
-// Запуск отслеживания при загрузке страницы
 document.addEventListener('DOMContentLoaded', trackUserActions);

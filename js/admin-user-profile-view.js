@@ -4,30 +4,11 @@ document.addEventListener('DOMContentLoaded', function () {
     showUserView(); 
     adminCheck(true);
 
-    const currentUser = JSON.parse(sessionStorage.getItem('currentUser')); //Email пользователя, который вошел в аккаунт
-    const userEmail = sessionStorage.getItem('viewUserEmail');  // Email пользователя, которого мы смотрим
+    const currentUser = JSON.parse(sessionStorage.getItem('currentUser')); 
+    const userEmail = sessionStorage.getItem('viewUserEmail'); 
     let users = JSON.parse(localStorage.getItem('users')) || [];
-
-     // Проверяем, есть ли данные о пользователях
-     if (users.length === 0) {
-         alert('No users found in the database');
-         window.location.href = 'users.html';
-         return;
-     }
+    let user = users.find(u => u.email === (userEmail || currentUser.email));
  
-     // Если есть viewUserEmail, ищем пользователя по нему, иначе используем currentUser
-     let user = users.find(u => u.email === (userEmail || currentUser.email));
- 
-     // Если пользователь не найден, сообщаем об этом и перенаправляем
-     if (!user) {
-         alert(`User with email ${userEmail.email || currentUser} not found`);
-         console.log(`Пользователь с email ${userEmail.email || currentUser} не найден`);
-         window.location.href = 'users.html';
-         return;
-     }
-
-
-    // Отображаем данные пользователя
     document.getElementById('name').textContent = user.name;
     document.getElementById('age').textContent = user.age;
     document.getElementById('gender').textContent = user.gender;
@@ -36,7 +17,7 @@ document.addEventListener('DOMContentLoaded', function () {
     document.getElementById('zodiac').textContent = user.zodiac;
     document.getElementById('description').textContent = user.description;
     document.getElementById('profileImage').src = user.profileImage || 'default-profile.png';
-    // Отображаем текущий средний рейтинг
+
     user.ratings = user.ratings || [];
     document.getElementById('rating').textContent = user.ratings.length > 0 ? calculateAverageRating(user.ratings) : 'No ratings yet';
     document.getElementById('hiddenCheck').checked = user.IsHidden;                           
@@ -44,7 +25,6 @@ document.addEventListener('DOMContentLoaded', function () {
     const checkbox = document.getElementById('hiddenCheck');
 
     checkbox.addEventListener('change', function() {
-        // Выводим текущее значение в консоль для отладки
         user.IsHidden = checkbox.checked;
         users = users.filter(usr => usr.name !== user.name);
         users.push(user);
@@ -53,8 +33,6 @@ document.addEventListener('DOMContentLoaded', function () {
     });
 
     
-
-    // Кнопка для возврата к списку пользователей
     document.getElementById('back').addEventListener('click', function () {
         window.location.href = 'admin-filter-page.html';
     });
@@ -62,5 +40,5 @@ document.addEventListener('DOMContentLoaded', function () {
 
 function calculateAverageRating(ratings) {
     const sum = ratings.reduce((acc, ratingObj) => acc + ratingObj.rating, 0);
-    return (sum / ratings.length).toFixed(1); // Округляем до 1 знака после запятой
+    return (sum / ratings.length).toFixed(1);
 }

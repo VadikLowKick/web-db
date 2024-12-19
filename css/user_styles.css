@@ -189,6 +189,7 @@ label input[type="radio"] {
 #profile-container {
     display: flex; /* Используем flexbox для выравнивания */
     gap: 20px; /* Отступ между фотографией и данными */
+    justify-content: center; /* Центрируем по вертикали */
     align-items: flex-start; /* Выровнять по верхнему краю */
     margin-top: 20px; /* Отступ сверху */
 }
@@ -213,15 +214,16 @@ label input[type="radio"] {
 #profile-details {
     font-size: 25px; /* Увеличиваем размер шрифта */
     flex-grow: 1; /* Делаем так, чтобы данные заполняли оставшееся пространство */
-    padding: 20px; /* Отступы вокруг данных */
+    padding: 30px; /* Отступы вокруг данных */
     border: 1px solid #ddd; /* Граница вокруг данных */
     border-radius: 10px; /* Скругление углов */
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Тень вокруг блока с данными */
 }
 
 #profile-details p {
-    margin: 10px; /* Отступы между абзацами */
+    margin: 20px; /* Отступы между абзацами */
 }
+
 #userRating {
     font-size: 20px; /* Размер текста */
     padding: 5px; /* Отступы вокруг текста */
@@ -265,7 +267,7 @@ label input[type="radio"] {
 #profileForm select, 
 #profileForm textarea, 
 #profileForm button {
-    margin: 10px; /* Отступ между элементами */
+    margin: 14px; /* Отступ между элементами */
     resize: none;
 }
 
@@ -340,4 +342,14 @@ label input[type="radio"] {
     background: linear-gradient(to right, #0072ff, #00c6ff);
 }
 
-
+.form-group {
+    display: flex;
+    align-items: center; /* Выравнивает элементы по вертикали */
+    justify-content: center; /* Центрируем элементы по вертикали */
+    gap: 1px; /* Расстояние между label и input */
+  }
+  
+.form-group label {
+    width: 146px; /* Фиксированная ширина для выравнивания */
+    text-align: right; /* Выравнивание текста по правому краю */
+  }

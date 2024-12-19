@@ -39,7 +39,6 @@ function fill_preset(){
     if (hiddenCheckbox.checked && visibleCheckbox.checked){
         IsHidden = null;
     }
-    // Создаем preset
     preset = {
     minAge: isNaN(minAge) ? null : minAge,
     maxAge: isNaN(maxAge) ? null : maxAge,
@@ -71,7 +70,7 @@ document.addEventListener('DOMContentLoaded', function () {
     const minRating = parseFloat(document.getElementById('minRating').value);
     const maxRating = parseFloat(document.getElementById('maxRating').value);
 
-       // Создаем preset
+
     const preset = {
         minAge: isNaN(minAge) ? null : minAge,
         maxAge: isNaN(maxAge) ? null : maxAge,
@@ -87,17 +86,13 @@ document.addEventListener('DOMContentLoaded', function () {
     };
 
 
-        
-
-    // Получаем всех пользователей из LocalStorage
     const users = JSON.parse(localStorage.getItem('users')) || [];
 
     var filteredUsers = filterWithPreset(users, preset)
 
 
-    // Отображаем результаты
     const resultsDiv = document.getElementById('results');
-    resultsDiv.innerHTML = ''; // Очищаем результаты перед добавлением новых
+    resultsDiv.innerHTML = ''; 
 
     if (filteredUsers.length > 0) {
         filteredUsers.forEach(user => {
@@ -115,23 +110,21 @@ document.addEventListener('DOMContentLoaded', function () {
             resultsDiv.appendChild(userItem);
         });
 
-        // Обрабатываем нажатие кнопки "View Profile"
         document.querySelectorAll('.viewProfile').forEach(button => {
             button.addEventListener('click', function () {
                 sessionStorage.setItem('viewUserEmail', this.getAttribute('data-email'));
                 window.location.href = 'admin-user-profile-view.html';
             });
         });
-    } else {
+    } 
+    else {
         resultsDiv.innerHTML = '<p>No users found with the selected filters.</p>';
     }
 
-
-        // Получаем элементы
     const toggleSidebarButton = document.getElementById('toggleSidebar');
     const sidebar = document.getElementById('sidebar');
 
-    // Обработчик для кнопки "Открыть меню"
+
     toggleSidebarButton.addEventListener('click', () => {
         sidebar.classList.toggle('active');
     });
@@ -144,17 +137,12 @@ document.getElementById('filterForm').addEventListener('submit', function (e) {
     e.preventDefault();
 
     fill_preset();
-
     
-    // Получаем всех пользователей из LocalStorage
     const users = JSON.parse(localStorage.getItem('users')) || [];
-
     var filteredUsers = filterWithPreset(users, preset)
 
-
-    // Отображаем результаты
     const resultsDiv = document.getElementById('results');
-    resultsDiv.innerHTML = ''; // Очищаем результаты перед добавлением новых
+    resultsDiv.innerHTML = ''; 
 
     if (filteredUsers.length > 0) {
         filteredUsers.forEach(user => {
@@ -172,8 +160,6 @@ document.getElementById('filterForm').addEventListener('submit', function (e) {
             `;
             resultsDiv.appendChild(userItem);
         });
-
-        // Обрабатываем нажатие кнопки "View Profile"
         document.querySelectorAll('.viewProfile').forEach(button => {
             button.addEventListener('click', function () {
                 sessionStorage.setItem('viewUserEmail', this.getAttribute('data-email'));

@@ -12,8 +12,8 @@ document.getElementById('loginForm').addEventListener('submit', function(event) 
     if (admin) {
         if (admin.password === password) {
             admin.IsAdmin = true
-            sessionStorage.setItem('currentUser', JSON.stringify(admin));  // Сохраняем администратора в sessionStorage
-            window.location.href = 'admin-dashboard.html';  // Переход на административную панель
+            sessionStorage.setItem('currentUser', JSON.stringify(admin));  
+            window.location.href = 'admin-dashboard.html';  
         } else {
             errorMessage();
         }
@@ -26,14 +26,14 @@ document.getElementById('loginForm').addEventListener('submit', function(event) 
 });
 function errorMessage(){
     if (!document.querySelector('.error-message')) {
-        const paragraph = document.createElement('p'); // Создаем элемент заголовка
-        paragraph.textContent = 'Incorrect name or password'; // Устанавливаем текст заголовка
-        paragraph.style.color = 'red'; // Делаем текст красным
-        paragraph.style.textAlign = 'center'; // Центрируем заголовок
+        const paragraph = document.createElement('p');
+        paragraph.textContent = 'Incorrect name or password'; 
+        paragraph.style.color = 'red';
+        paragraph.style.textAlign = 'center'; 
       
-        // Добавляем класс для упрощения поиска в будущем
+
         paragraph.classList.add('error-message');
       
-        document.body.appendChild(paragraph); // Добавляем заголовок в body
+        document.body.appendChild(paragraph);
       }
 };
